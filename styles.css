@@ -1,0 +1,104 @@
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #444;
+}
+
+.header-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures the image is fully contained within the specified dimensions */
+}
+
+nav {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin-bottom: 20px;
+}
+
+main section {
+    margin-bottom: 20px;
+}
+
+main section h2 {
+    font-size: 1.5em;
+    color: #444;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+main section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    margin: 0;
+    color: #777;
+}
+
+
+.github-logo {
+    width: 18px;
+    height: 18px;
+    /* margin-bottom: 20px; Adjust the margin as needed */
+}
+
+.cpp-logo {
+    width: 14px;
+    height: 16px;
+    /* margin-bottom: 20px; Adjust the margin as needed */
+}
