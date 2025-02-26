@@ -1,2 +1,16 @@
+# Private files
+private.txt
+.env
+credentials/
+*.key
+*.pem
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+__pycache__/
 
 .codegpt
