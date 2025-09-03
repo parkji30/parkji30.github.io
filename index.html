@@ -3,49 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Park Homepage</title>
+    <title>James Park</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="James Park — engineer working on optimization with JAX and Rust.">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>James Park</h1>
-            <img src="korea.jpeg" alt="Logo" class="header-image", width="800" height="500">
+        <header class="site-header" role="banner">
+            <h1 class="site-title">James Park</h1>
+            <p class="site-subtitle">Engineer • JAX, Rust • Optimization & ML</p>
+            <nav class="site-nav" aria-label="Primary">
+                <a href="index.html">Home</a>
+                <a href="Blog/not_research.html">Writing</a>
+                <a href="Research/frameworks_benchmarks.html">Research</a>
+                <a href="useful_links.html">Links</a>
+                <a href="https://github.com/parkji30/">GitHub</a>
+                <a href="https://scholar.google.ca/citations?user=mpOVNKQAAAAJ&hl=en">Scholar</a>
+            </nav>
         </header>
-        <main>
-            <section>
-                <ul>
-                    Hello, I'm James Park. I'm a software/research engineer at Xanadu Quantum Technologies where I work on optimization problems wielding JAX and Rust.
-                </ul>
-            </section>
-            <!-- </section>
-                <h3>Blog</h3>
-                <ul>
-                    <li><a href="Blog/not_research.html">Research is Not For Me</a></li>
 
-                </ul>
-            </section> -->
+        <main id="content" role="main">
+            <section class="section">
+                <article>
+                    <h2 class="title">Hello</h2>
+                    <p>
+                        I'm James Park, a software/research engineer at Xanadu Quantum Technologies.
+                        I work on optimization problems, wielding <strong>JAX</strong> and <strong>Rust</strong>.
+                    </p>
+                    <img src="korea.jpeg" alt="Seoul skyline" class="header-image" width="800" height="500">
+                </article>
             </section>
-                <h3>Research Projects</h3>
-                <ul>
-                    <li><a href="Research/frameworks_benchmarks.html">Benchmarks of ML Frameworks</a></li>
+
+            <section class="section">
+                <div class="section-header">
+                    <h2>Recent</h2>
+                    <small class="muted">writing & projects</small>
+                </div>
+                <ul class="list-plain">
+                    <li>
+                        <a href="Blog/not_research.html">Research Is Not For Me</a>
+                        <span class="meta">— May 13, 2025</span>
+                    </li>
+                    <li>
+                        <a href="Research/frameworks_benchmarks.html">Deep Learning Framework Benchmarks</a>
+                        <span class="meta">— overview</span>
+                    </li>
                 </ul>
-            </section>            
             </section>
-                <h3>Other</h3>
-                <ul>
-                    <li><a href="useful_links.html">Dump of useful links</a></li>
-                    <li><a href="https://scholar.google.ca/citations?user=mpOVNKQAAAAJ&hl=en">My Google Scholar</a></li>
-                    <li><a href="https://github.com/parkji30/">My Github</a><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="github-logo"></li>
-                </ul>
-            </section>
-            <section>
-                <h3>Contact</h3>
-                <ul>
-                    <a href="mailto:webmaster@example.com">jp7dec23@gmail.com</a>
+
+            <section class="section">
+                <h2>Elsewhere</h2>
+                <ul class="list-plain">
+                    <li><a href="useful_links.html">Useful links</a></li>
+                    <li><a href="mailto:jp7dec23@gmail.com">jp7dec23@gmail.com</a></li>
                 </ul>
             </section>
         </main>
+
+        <footer class="site-footer" role="contentinfo">
+            <p class="muted">© James Park</p>
+        </footer>
     </div>
 </body>
 </html>
