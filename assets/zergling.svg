@@ -1,0 +1,19 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Zergling - purple alien creature -->
+  <g>
+    <!-- Body -->
+    <ellipse cx="24" cy="28" rx="14" ry="10" fill="#7B2CBF" stroke="#5A1E91" stroke-width="2"/>
+    <!-- Head -->
+    <ellipse cx="24" cy="18" rx="10" ry="8" fill="#9D4EDD" stroke="#5A1E91" stroke-width="2"/>
+    <!-- Eyes -->
+    <circle cx="20" cy="17" r="2" fill="#FF0000"/>
+    <circle cx="28" cy="17" r="2" fill="#FF0000"/>
+    <!-- Claws/spikes -->
+    <polygon points="12,24 8,22 12,28" fill="#5A1E91"/>
+    <polygon points="36,24 40,22 36,28" fill="#5A1E91"/>
+    <!-- Legs -->
+    <line x1="18" y1="35" x2="14" y2="42" stroke="#5A1E91" stroke-width="3" stroke-linecap="round"/>
+    <line x1="24" y1="36" x2="24" y2="44" stroke="#5A1E91" stroke-width="3" stroke-linecap="round"/>
+    <line x1="30" y1="35" x2="34" y2="42" stroke="#5A1E91" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

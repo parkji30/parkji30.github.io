@@ -1,0 +1,21 @@
+{
+  "name": "starcraft-site",
+  "version": "0.1.0",
+  "description": "James Park's portfolio with StarCraft-themed interactive elements built with Rust/WASM",
+  "scripts": {
+    "build": "wasm-pack build --target web --out-dir pkg --release",
+    "dev": "wasm-pack build --target web --out-dir pkg --dev",
+    "serve": "python3 -m http.server 8000",
+    "clean": "rm -rf pkg target"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "rust",
+    "wasm",
+    "webassembly",
+    "starcraft",
+    "portfolio"
+  ],
+  "author": "James Park",
+  "license": "MIT"
+}

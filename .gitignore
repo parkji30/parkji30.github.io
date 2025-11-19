@@ -13,4 +13,19 @@ Thumbs.db
 node_modules/
 __pycache__/
 
+# Rust/Cargo
+target/
+Cargo.lock
+
+# wasm-pack output
+pkg/
+
+# IDE
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+
 .codegpt

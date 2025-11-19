@@ -1,0 +1,20 @@
+<svg width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <!-- Marine - armored soldier -->
+  <g>
+    <!-- Body armor -->
+    <rect x="16" y="22" width="16" height="18" fill="#2E8B97" stroke="#1A5C66" stroke-width="2" rx="2"/>
+    <!-- Helmet -->
+    <rect x="18" y="12" width="12" height="12" fill="#3DA5B3" stroke="#1A5C66" stroke-width="2" rx="1"/>
+    <!-- Visor -->
+    <rect x="19" y="16" width="10" height="4" fill="#00FFFF" opacity="0.7"/>
+    <!-- Shoulder pads -->
+    <rect x="12" y="22" width="4" height="6" fill="#3DA5B3" stroke="#1A5C66" stroke-width="1" rx="1"/>
+    <rect x="32" y="22" width="4" height="6" fill="#3DA5B3" stroke="#1A5C66" stroke-width="1" rx="1"/>
+    <!-- Gun -->
+    <rect x="32" y="28" width="10" height="3" fill="#4A4A4A" stroke="#2A2A2A" stroke-width="1"/>
+    <rect x="40" y="27" width="3" height="5" fill="#666666" stroke="#2A2A2A" stroke-width="1"/>
+    <!-- Legs -->
+    <rect x="19" y="40" width="4" height="6" fill="#1A5C66"/>
+    <rect x="25" y="40" width="4" height="6" fill="#1A5C66"/>
+  </g>
+</svg>

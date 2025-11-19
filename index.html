@@ -3,105 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Park</title>
+    <title>James Park — StarCraft: Brood War Edition</title>
     <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="James Park — engineer working on optimization with JAX and Rust.">
+    <meta name="description" content="James Park — engineer working on optimization with JAX and Rust. StarCraft Brood War themed!">
 </head>
 <body>
-    <div class="retro" role="application">
-        <header role="banner" class="frame">
-            <h1 class="title">James Park</h1>
-            <p class="subtitle">Engineer — JAX • Rust — Optimization & ML</p>
-            <nav class="nav" aria-label="Primary">
-                <a href="index.html">Home</a>
-                <a href="useful_links.html">Links</a>
-                <a href="https://github.com/parkji30/" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://scholar.google.ca/citations?user=mpOVNKQAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
-                <a href="mailto:jp7dec23@gmail.com">Email</a>
-            </nav>
+    <!-- Full-screen canvas for StarCraft battle -->
+    <canvas id="starcraft-canvas"></canvas>
+
+    <div class="container">
+        <header role="banner">
+            <div class="header-inner">
+                <h1 class="title">James Park</h1>
+                <p class="subtitle">AI Engineer mixing with Quantum Computing</p>
+                <nav class="nav" aria-label="Primary">
+                    <a href="index.html">Home</a>
+                    <a href="useful_links.html">Links</a>
+                    <a href="https://github.com/parkji30/" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://scholar.google.ca/citations?user=mpOVNKQAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+                    <a href="mailto:jp7dec23@gmail.com">Email</a>
+                </nav>
+            </div>
         </header>
 
         <main id="content" role="main">
-            <!-- Top half: Bio (left) and Photo (right) -->
-            <section class="hero frame" aria-label="Biography">
-                <div class="bio">
-                    <h2>About</h2>
-                    <p>I'm James Park, a software and research engineer focused on practical optimization and machine learning. Most days I reach for <strong>JAX</strong> when I want fast numerics, and <strong>Rust</strong> when I want reliability and speed in systems.</p>
-                    <p>Previously at Xanadu Quantum Technologies. I like clean interfaces, well‑reasoned benchmarks, and shipping things that are both fast and simple.</p>
-                </div>
-                <aside class="portrait" aria-label="Portrait">
-                    <img src="korea.jpeg" alt="James Park — photo" width="800" height="500">
-                </aside>
-            </section>
-
-            <!-- Bottom half: Projects / Experience links -->
-            <section class="projects frame" aria-label="Projects and experience">
-                <h2>Projects & Experience</h2>
-                <div class="links-grid">
-                    <a class="link-card" href="https://github.com/parkji30?tab=repositories&q=JAX" target="_blank" rel="noopener">
-                        <strong>JAX Optimization</strong>
-                        <span class="muted">Experimentation, autodiff, and performance‑minded numerics</span>
-                    </a>
-                    <a class="link-card" href="https://github.com/parkji30?tab=repositories&q=rust" target="_blank" rel="noopener">
-                        <strong>Rust Systems</strong>
-                        <span class="muted">Tools, performance, and reliability in Rust</span>
-                    </a>
-                    <a class="link-card" href="https://scholar.google.ca/citations?user=mpOVNKQAAAAJ&hl=en" target="_blank" rel="noopener">
-                        <strong>Research</strong>
-                        <span class="muted">Publications and citations on Google Scholar</span>
-                    </a>
-                    <a class="link-card" href="useful_links.html">
-                        <strong>Notes & Links</strong>
-                        <span class="muted">References and things I find useful</span>
-                    </a>
-                    <a class="link-card" href="https://github.com/parkji30/" target="_blank" rel="noopener">
-                        <strong>All Repos</strong>
-                        <span class="muted">Browse everything on GitHub</span>
-                    </a>
-                    <a class="link-card" href="mailto:jp7dec23@gmail.com">
-                        <strong>Contact</strong>
-                        <span class="muted">jp7dec23@gmail.com</span>
-                    </a>
-                </div>
-            </section>
         </main>
-
-        <footer role="contentinfo">
-            <p>© James Park</p>
-        </footer>
     </div>
 
-    <style>
-        /* Lightweight retro styling scoped to this page */
-        .retro {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 24px 20px 48px 20px;
-            font-family: "Courier New", Courier, monospace;
-            color: #e6e6e6;
-            background-color: #0d0d0d;
+    <!-- Load WASM module -->
+    <script type="module">
+        import init, { init_game, update_and_render, resize_game } from './pkg/starcraft_site.js';
+
+        let animationFrameId = null;
+
+        async function run() {
+            try {
+                await init();
+
+                const canvas = document.getElementById('starcraft-canvas');
+                const ctx = canvas.getContext('2d');
+
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    resize_game(canvas.width, canvas.height);
+                }
+
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+
+                init_game(canvas.width, canvas.height);
+
+                function animate(timestamp) {
+                    update_and_render('starcraft-canvas', timestamp);
+                    animationFrameId = requestAnimationFrame(animate);
+                }
+
+                requestAnimationFrame(animate);
+
+                console.log('StarCraft battle initialized! Watch the units fight!');
+            } catch (error) {
+                console.error('Error loading WASM:', error);
+                const canvas = document.getElementById('starcraft-canvas');
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#00ff41';
+                ctx.font = '20px Courier New';
+                ctx.textAlign = 'center';
+                ctx.fillText('StarCraft battle loading...',
+                    canvas.width / 2, canvas.height / 2);
+            }
         }
-        .retro a { color: #00ffa2; text-decoration: none; border-bottom: 1px dotted #00ffa2; }
-        .retro a:hover { border-bottom-style: solid; }
-        .retro .frame { border: 1px solid #2a2a2a; padding: 20px; background: #0f0f0f; }
-        .retro .title { font-size: 28px; margin: 0 0 6px 0; letter-spacing: 0.5px; }
-        .retro .subtitle { color: #a1a1aa; margin: 0 0 16px 0; font-size: 14px; }
-        .retro .nav { display: flex; gap: 16px; flex-wrap: wrap; margin: 8px 0 24px 0; }
-        .retro .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; min-height: 50vh; }
-        .retro .bio h2 { margin: 0 0 10px 0; font-size: 20px; }
-        .retro .bio p { margin: 10px 0; }
-        .retro .portrait img { width: 100%; height: auto; display: block; border: 1px solid #2a2a2a; border-radius: 4px; }
-        .retro .projects { min-height: 50vh; margin-top: 24px; }
-        .retro .projects h2 { margin: 0 0 12px 0; font-size: 20px; }
-        .retro .links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-        .retro .link-card { display: block; padding: 14px; border: 1px dashed #2a2a2a; background: #0b0b0b; border-radius: 4px; }
-        .retro .link-card:hover { border-color: #00ffa2; background: #111111; }
-        .retro .link-card strong { display: block; margin-bottom: 6px; }
-        .retro .muted { color: #a1a1aa; font-size: 12px; }
-        .retro footer { margin-top: 24px; color: #a1a1aa; font-size: 12px; }
-        @media (max-width: 700px) {
-            .retro .hero { grid-template-columns: 1fr; }
-        }
-    </style>
+
+        run();
+    </script>
 </body>
 </html>
