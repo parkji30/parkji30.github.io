@@ -405,9 +405,9 @@ impl Game {
         let mut rng = rand::thread_rng();
         let mut units = Vec::new();
 
-        let num_zerglings = rng.gen_range(20..25);  // 3x larger Zergling swarms
+        let num_zerglings = rng.gen_range(35..45);  // Massive Zergling swarms
         let num_zealots = rng.gen_range(5..7);
-        let num_marines = rng.gen_range(9..12);  // 1.5x Marines
+        let num_marines = rng.gen_range(18..24);  // Large Marine battalions
 
         let corner_margin = 150.0;
 
@@ -458,9 +458,9 @@ impl Game {
     }
 
     fn spawn_batch(&mut self) {
-        let num_zerglings = self.rng.gen_range(6..10);  // 3x larger Zergling reinforcements
+        let num_zerglings = self.rng.gen_range(12..18);  // Massive Zergling reinforcements
         let num_zealots = self.rng.gen_range(1..3);
-        let num_marines = self.rng.gen_range(3..5);  // 1.5x Marine reinforcements
+        let num_marines = self.rng.gen_range(6..10);  // Large Marine reinforcements
 
         let corner_margin = 150.0;
 
