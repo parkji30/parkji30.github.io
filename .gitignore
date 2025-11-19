@@ -18,7 +18,7 @@ target/
 Cargo.lock
 
 # wasm-pack output
-pkg/
+# pkg/ - commented out so WASM files are deployed to GitHub Pages
 
 # IDE
 .vscode/

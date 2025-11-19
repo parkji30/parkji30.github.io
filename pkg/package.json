@@ -1,0 +1,15 @@
+{
+  "name": "starcraft-site",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "starcraft_site_bg.wasm",
+    "starcraft_site.js",
+    "starcraft_site.d.ts"
+  ],
+  "main": "starcraft_site.js",
+  "types": "starcraft_site.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
