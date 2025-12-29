@@ -1,0 +1,17 @@
+# Rust build artifacts
+/target
+/dist
+
+# Cargo lock (optional, but recommended to include for apps)
+# Cargo.lock
+
+# IDE
+.idea/
+*.swp
+*.swo
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,17 @@
+[package]
+name = "james-park-site"
+version = "0.1.0"
+edition = "2021"
+authors = ["James Park"]
+description = "A rustic pixel-art personal website built with Rust and WebAssembly"
+
+[dependencies]
+yew = { version = "0.21", features = ["csr"] }
+rand = "0.8"
+getrandom = { version = "0.2", features = ["js"] }
+wasm-bindgen = "0.2"
+
+[profile.release]
+lto = true
+opt-level = 's'
+

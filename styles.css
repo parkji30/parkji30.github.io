@@ -1,0 +1,355 @@
+/* ═══════════════════════════════════════════════════════════
+   TORONTO NIGHTS - James Park's Portfolio
+   A minimalist black & white Toronto skyline
+   Built with Rust & WebAssembly
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+    /* Pure black and white palette */
+    --black: #000000;
+    --white: #ffffff;
+    --gray-dark: #1a1a1a;
+    --gray-medium: #333333;
+    --gray-light: #666666;
+    --gray-lighter: #999999;
+    --gray-pale: #cccccc;
+    --off-white: #f0f0f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background: var(--black);
+    min-height: 100vh;
+    position: relative;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SNOWFALL ANIMATION
+   ═══════════════════════════════════════════════════════════ */
+
+.snowfall-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -20px;
+    background: var(--white);
+    border-radius: 0;
+    image-rendering: pixelated;
+    box-shadow: 0 0 3px var(--white), 0 0 6px rgba(255, 255, 255, 0.5);
+    animation: fall var(--fall-duration, 10s) linear infinite,
+               drift var(--fall-duration, 10s) ease-in-out infinite;
+}
+
+/* Rotating snowflakes get the spin animation */
+.snowflake.rotating {
+    animation: fall var(--fall-duration, 10s) linear infinite,
+               spin var(--rotation-duration, 6s) linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -20px;
+    }
+    100% {
+        top: 100vh;
+    }
+}
+
+/* Gentle side-to-side drift for non-rotating snowflakes */
+@keyframes drift {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(8px);
+    }
+    75% {
+        transform: translateX(-8px);
+    }
+}
+
+/* Slow rotation with drift for rotating snowflakes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    25% {
+        transform: rotate(90deg) translateX(6px);
+    }
+    50% {
+        transform: rotate(180deg) translateX(-4px);
+    }
+    75% {
+        transform: rotate(270deg) translateX(5px);
+    }
+    100% {
+        transform: rotate(360deg) translateX(0);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TORONTO SKYLINE - Simple rectangles
+   ═══════════════════════════════════════════════════════════ */
+
+.skyline-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    z-index: 10;
+}
+
+/* CN Tower - Simple pixel style matching snowflakes */
+.cn-tower {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cn-tower-antenna {
+    width: 3px;
+    height: 35px;
+    background: var(--white);
+    opacity: 0.2;
+}
+
+.cn-tower-top-sphere {
+    width: 8px;
+    height: 8px;
+    background: var(--white);
+    opacity: 0.2;
+}
+
+.cn-tower-neck-upper {
+    width: 5px;
+    height: 20px;
+    background: var(--white);
+    opacity: 0.2;
+}
+
+.cn-tower-pod {
+    width: 36px;
+    height: 18px;
+    background: var(--white);
+    opacity: 0.25;
+}
+
+.cn-tower-pod-lower {
+    width: 28px;
+    height: 8px;
+    background: var(--white);
+    opacity: 0.2;
+}
+
+.cn-tower-neck-lower {
+    width: 6px;
+    height: 100px;
+    background: var(--white);
+    opacity: 0.2;
+}
+
+.cn-tower-base {
+    width: 18px;
+    height: 10px;
+    background: var(--white);
+    opacity: 0.2;
+}
+
+/* Simple pixel buildings - matching snowflake style */
+.buildings-left,
+.buildings-right {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.buildings-left {
+    left: 5%;
+    right: 55%;
+}
+
+.buildings-right {
+    left: 55%;
+    right: 5%;
+}
+
+.building {
+    background: var(--white);
+    opacity: 0.15;
+}
+
+/* Simple varying heights */
+.building-1 { width: 20px; height: 60px; }
+.building-2 { width: 30px; height: 100px; }
+.building-3 { width: 18px; height: 80px; }
+.building-4 { width: 35px; height: 55px; }
+.building-5 { width: 25px; height: 120px; }
+.building-6 { width: 40px; height: 75px; }
+.building-7 { width: 22px; height: 90px; }
+.building-8 { width: 28px; height: 110px; }
+.building-9 { width: 24px; height: 65px; }
+.building-10 { width: 32px; height: 130px; }
+.building-11 { width: 20px; height: 78px; }
+.building-12 { width: 30px; height: 58px; }
+.building-13 { width: 26px; height: 95px; }
+.building-14 { width: 38px; height: 85px; }
+.building-15 { width: 22px; height: 48px; }
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT ME CARD
+   ═══════════════════════════════════════════════════════════ */
+
+.about-card {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 200;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid var(--gray-light);
+    padding: 20px 25px;
+    min-width: 180px;
+}
+
+.card-border-top,
+.card-border-bottom {
+    display: none;
+}
+
+.card-content {
+    padding: 0;
+}
+
+.name {
+    font-family: 'Silkscreen', cursive;
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.pixel-divider {
+    display: none;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.link-item {
+    color: var(--gray-pale);
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.15s ease;
+}
+
+.link-item:hover {
+    color: var(--white);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RUST BADGE
+   ═══════════════════════════════════════════════════════════ */
+
+.rust-badge {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    z-index: 200;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+    color: var(--gray-lighter);
+    opacity: 0.7;
+    letter-spacing: 1px;
+}
+
+.rust-badge span {
+    background: var(--black);
+    padding: 5px 10px;
+    border: 1px solid var(--gray-medium);
+}
+
+/* Stars removed - using background image */
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .about-card {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        min-width: auto;
+    }
+    
+    .name {
+        font-size: 1.5rem;
+    }
+    
+    .cn-tower {
+        transform: translateX(-50%) scale(0.7);
+    }
+    
+    .building {
+        transform: scale(0.7);
+    }
+    
+    .rust-badge {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .cn-tower {
+        transform: translateX(-50%) scale(0.5);
+    }
+    
+    .skyline-container {
+        height: 250px;
+    }
+    
+    .buildings-left,
+    .buildings-right {
+        display: none;
+    }
+}
