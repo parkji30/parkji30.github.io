@@ -1,6 +1,8 @@
 [build]
 target = "index.html"
 dist = "dist"
+# Skip wasm-opt to avoid build issues on CI
+no_minification = true
 
 [watch]
 watch = ["src", "index.html", "styles.css"]
