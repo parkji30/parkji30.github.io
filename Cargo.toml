@@ -12,6 +12,9 @@ rand = "0.8"
 getrandom = { version = "0.2", features = ["js"] }
 wasm-bindgen = "0.2"
 
+[lints.clippy]
+pedantic = "warn"
+
 [profile.release]
 lto = true
 opt-level = 's'

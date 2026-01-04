@@ -76,7 +76,7 @@ fn snowflake_component(props: &SnowflakeProps) -> Html {
 #[function_component(Snowfall)]
 fn snowfall() -> Html {
     // Create snowflakes once on mount
-    let snowflakes = use_memo((), |_| (0..60).map(Snowflake::new).collect::<Vec<_>>());
+    let snowflakes = use_memo((), |()| (0..60).map(Snowflake::new).collect::<Vec<_>>());
 
     html! {
         <div class="snowfall-container">
@@ -328,6 +328,7 @@ fn blog_page() -> Html {
 }
 
 /// Switch between routes
+#[allow(clippy::needless_pass_by_value)]
 fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! { <HomePage /> },
