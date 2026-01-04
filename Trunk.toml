@@ -9,4 +9,12 @@ watch = ["src", "index.html", "styles.css"]
 address = "127.0.0.1"
 port = 8080
 open = true
+# Serve index.html for all routes (SPA fallback for client-side routing)
+fallback = "index.html"
+
+# Copy index.html to 404.html for GitHub Pages SPA routing
+[[hooks]]
+stage = "post_build"
+command = "cp"
+command_arguments = ["dist/index.html", "dist/404.html"]
 
