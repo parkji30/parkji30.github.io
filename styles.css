@@ -54,8 +54,13 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 100;
+    z-index: 10;
     overflow: hidden;
+}
+
+/* On research page, snowfall stays behind content */
+.research-page .snowfall-container {
+    z-index: 5;
 }
 
 .snowflake {
@@ -355,5 +360,221 @@ body {
     .buildings-left,
     .buildings-right {
         display: none;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESEARCH PAGE
+   Centered content panel with snowfall on sides
+   ═══════════════════════════════════════════════════════════ */
+
+.research-page {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.research-content {
+    position: relative;
+    z-index: 20;
+    width: 33.333%;
+    min-width: 400px;
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background: var(--black);
+    border-left: 1px solid var(--gray-medium);
+    border-right: 1px solid var(--gray-medium);
+    padding: 40px 50px 80px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+}
+
+.research-nav {
+    margin-bottom: 40px;
+}
+
+.back-link {
+    color: var(--gray-lighter);
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+    display: inline-block;
+}
+
+.back-link:hover {
+    color: var(--white);
+}
+
+.research-article {
+    color: var(--off-white);
+}
+
+.research-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.research-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.research-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--gray-light);
+    margin: 0 auto;
+}
+
+.research-section {
+    margin-bottom: 45px;
+}
+
+.research-section h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+}
+
+.research-section p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--gray-pale);
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.research-image-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--gray-dark);
+    border: 1px solid var(--gray-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.research-image-placeholder span {
+    color: var(--gray-lighter);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+.publications-list {
+    list-style: none;
+    padding: 0;
+}
+
+.publications-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-dark);
+}
+
+.publications-list li:last-child {
+    border-bottom: none;
+}
+
+.pub-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--white);
+}
+
+.pub-meta {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--gray-lighter);
+}
+
+/* Blog-specific styles */
+.blog-post {
+    margin-bottom: 35px;
+}
+
+.blog-post-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.blog-date {
+    display: block;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--gray-lighter);
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+}
+
+.blog-post p {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--gray-pale);
+    margin-bottom: 18px;
+    text-align: justify;
+}
+
+.blog-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--gray-medium);
+    margin: 40px 0;
+}
+
+/* Research page responsive */
+@media (max-width: 768px) {
+    .research-content {
+        width: 100%;
+        min-width: auto;
+        max-width: none;
+        padding: 30px 25px 60px;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .research-title {
+        font-size: 2rem;
+    }
+    
+    .research-section h2 {
+        font-size: 1.25rem;
+    }
+    
+    .research-section p {
+        font-size: 1.05rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .research-content {
+        padding: 20px 20px 50px;
+    }
+    
+    .research-title {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+    
+    .research-image-placeholder {
+        height: 150px;
     }
 }
