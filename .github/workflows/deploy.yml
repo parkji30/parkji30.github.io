@@ -31,12 +31,12 @@ jobs:
 
       - name: Install Trunk
         run: |
-          wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.21.4/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
+          wget -qO- https://github.com/trunk-rs/trunk/releases/download/v0.21.14/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf-
           chmod +x trunk
           sudo mv trunk /usr/local/bin/
 
       - name: Build
-        run: trunk build --release
+        run: trunk build --release --public-url /
 
       - name: Copy 404.html for SPA routing
         run: cp dist/index.html dist/404.html
