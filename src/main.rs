@@ -38,7 +38,11 @@ impl Snowflake {
             delay: rng.gen_range(0.0..12.0),
             opacity: rng.gen_range(0.6..1.0),
             // Slower rotation: 4-10 seconds per rotation, or 0 for no rotation
-            rotation_duration: if should_rotate { rng.gen_range(4.0..10.0) } else { 0.0 },
+            rotation_duration: if should_rotate {
+                rng.gen_range(4.0..10.0)
+            } else {
+                0.0
+            },
         }
     }
 }
@@ -53,12 +57,16 @@ struct SnowflakeProps {
 #[function_component(SnowflakeComponent)]
 fn snowflake_component(props: &SnowflakeProps) -> Html {
     let sf = &props.snowflake;
-    let class = if sf.rotation_duration > 0.0 { "snowflake rotating" } else { "snowflake" };
+    let class = if sf.rotation_duration > 0.0 {
+        "snowflake rotating"
+    } else {
+        "snowflake"
+    };
     let style = format!(
         "left: {}%; width: {}px; height: {}px; opacity: {}; --fall-duration: {}s; --rotation-duration: {}s; animation-delay: {}s;",
         sf.x, sf.size, sf.size, sf.opacity, sf.duration, sf.rotation_duration, sf.delay
     );
-    
+
     html! {
         <div class={class} style={style}></div>
     }
@@ -68,9 +76,7 @@ fn snowflake_component(props: &SnowflakeProps) -> Html {
 #[function_component(Snowfall)]
 fn snowfall() -> Html {
     // Create snowflakes once on mount
-    let snowflakes = use_memo((), |_| {
-        (0..60).map(Snowflake::new).collect::<Vec<_>>()
-    });
+    let snowflakes = use_memo((), |_| (0..60).map(Snowflake::new).collect::<Vec<_>>());
 
     html! {
         <div class="snowfall-container">
@@ -124,7 +130,7 @@ fn toronto_skyline() -> Html {
     html! {
         <div class="skyline-container">
             <CNTower />
-            
+
             <div class="buildings-left">
                 <div class="building building-1"></div>
                 <div class="building building-2"></div>
@@ -134,7 +140,7 @@ fn toronto_skyline() -> Html {
                 <div class="building building-6"></div>
                 <div class="building building-7"></div>
             </div>
-            
+
             <div class="buildings-right">
                 <div class="building building-8"></div>
                 <div class="building building-9"></div>
@@ -167,20 +173,20 @@ fn research_page() -> Html {
     html! {
         <div class="app research-page">
             <Snowfall />
-            
+
             <div class="research-content">
                 <nav class="research-nav">
                     <Link<Route> to={Route::Home} classes="back-link">
                         {"← Back"}
                     </Link<Route>>
                 </nav>
-                
+
                 <article class="research-article">
                     <header class="research-header">
                         <h1 class="research-title">{"Research"}</h1>
                         <div class="research-divider"></div>
                     </header>
-                    
+
                     <section class="research-section">
                         <h2>{"Computational Astrophysics"}</h2>
                         <p>
@@ -246,20 +252,20 @@ fn blog_page() -> Html {
     html! {
         <div class="app research-page">
             <Snowfall />
-            
+
             <div class="research-content">
                 <nav class="research-nav">
                     <Link<Route> to={Route::Home} classes="back-link">
                         {"← Back"}
                     </Link<Route>>
                 </nav>
-                
+
                 <article class="research-article">
                     <header class="research-header">
                         <h1 class="research-title">{"Blog"}</h1>
                         <div class="research-divider"></div>
                     </header>
-                    
+
                     <section class="blog-post">
                         <h2 class="blog-post-title">{"Thoughts on Modern Computing"}</h2>
                         <span class="blog-date">{"January 4, 2026"}</span>
