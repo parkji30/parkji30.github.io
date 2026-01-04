@@ -5,18 +5,23 @@ dist = "dist"
 no_minification = true
 
 [watch]
-watch = ["src", "index.html", "styles.css"]
+watch = ["src", "index.html", "input.css", "tailwind.config.js"]
 
 [serve]
-address = "127.0.0.1"
+addresses = ["127.0.0.1"]
 port = 8080
 open = true
 # Serve index.html for all routes (SPA fallback for client-side routing)
 fallback = "index.html"
+
+# Build Tailwind CSS before Trunk build
+[[hooks]]
+stage = "pre_build"
+command = "sh"
+command_arguments = ["-c", "./tailwindcss -i input.css -o styles.css --minify"]
 
 # Copy index.html to 404.html for GitHub Pages SPA routing
 [[hooks]]
 stage = "post_build"
 command = "cp"
 command_arguments = ["dist/index.html", "dist/404.html"]
-
