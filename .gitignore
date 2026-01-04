@@ -1,6 +1,6 @@
 # Rust build artifacts
 /target
-/dist
+# /dist - NOT ignored, needed for GitHub Pages deployment
 
 # Cargo lock (optional, but recommended to include for apps)
 # Cargo.lock
