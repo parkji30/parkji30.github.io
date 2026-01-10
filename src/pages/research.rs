@@ -33,7 +33,7 @@ pub fn research_page() -> Html {
                                 <span class="pub-meta">{" — M.Sc. Thesis, Queen's University, 2022"}</span>
                             </li>
                             <li>
-                                <a href="https://academic.oup.com/mnras/article/514/2/1575/6604898" target="_blank" class="pub-title">{"Calibrating the Davis-Chandrasekhar-Fermi method with numerically simulated clouds"}</a>
+                                <a href="https://academic.oup.com/mnras/article/514/2/1575/6604898" target="_blank" class="pub-title">{"The Davis–Chandrasekhar–Fermi method revisited "}</a>
                                 <span class="pub-meta">{" — Monthly Notices of the Royal Astronomical Society, 2022"}</span>
                             </li>
                         </ul>
