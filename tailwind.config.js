@@ -10,19 +10,8 @@ module.exports = {
         'cormorant': ['"Cormorant Garamond"', 'Georgia', 'serif'],
       },
       colors: {
-        // Dark palette
         'bg-dark': '#0a0a0a',
         'bg-medium': '#111111',
-        'building-dark': '#151515',
-        'building-medium': '#1a1a1a',
-        'building-light': '#202020',
-        'lake-dark': '#0d0d0d',
-        'lake-light': '#141414',
-        'tree-dark': '#0a150a',
-        'tree-medium': '#101a10',
-        'tree-light': '#151f15',
-        'path': '#1a1a1a',
-        // UI colors
         'gray-dark': '#1a1a1a',
         'gray-medium': '#333333',
         'gray-light': '#666666',

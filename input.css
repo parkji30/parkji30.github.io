@@ -1,6 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   TORONTO NIGHTS - James Park's Portfolio
-   Dark Toronto Skyline Silhouette
+   James Park's Portfolio
    Built with Rust & WebAssembly + Tailwind CSS v4
    Typography: Cormorant Garamond (elegant academic serif)
    ═══════════════════════════════════════════════════════════ */
@@ -13,19 +12,10 @@
 
 @theme {
     --font-cormorant: "Cormorant Garamond", Georgia, serif;
-    
+
     /* Custom colors */
     --color-bg-dark: #0a0a0a;
     --color-bg-medium: #111111;
-    --color-building-dark: #151515;
-    --color-building-medium: #1a1a1a;
-    --color-building-light: #202020;
-    --color-lake-dark: #0d0d0d;
-    --color-lake-light: #141414;
-    --color-tree-dark: #0a150a;
-    --color-tree-medium: #101a10;
-    --color-tree-light: #151f15;
-    --color-path: #1a1a1a;
     --color-gray-dark: #1a1a1a;
     --color-gray-medium: #333333;
     --color-gray-light: #666666;
@@ -74,15 +64,6 @@ body {
     background: transparent;
 }
 
-.research-page .skyline-container {
-    position: fixed;
-    z-index: 5;
-}
-
-.research-page .snowfall-container {
-    z-index: 50;
-}
-
 /* ═══════════════════════════════════════════════════════════
    SNOWFALL ANIMATION
    ═══════════════════════════════════════════════════════════ */
@@ -128,397 +109,6 @@ body {
     50% { transform: rotate(180deg) translateX(-4px); }
     75% { transform: rotate(270deg) translateX(5px); }
     100% { transform: rotate(360deg) translateX(0); }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   SKYLINE CONTAINER
-   ═══════════════════════════════════════════════════════════ */
-
-.skyline-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.sky-gradient {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(180deg, 
-        #000000 0%, 
-        #050505 40%, 
-        #0a0a0a 70%,
-        #0d0d0d 100%
-    );
-}
-
-.city-layer {
-    position: absolute;
-    bottom: 35%;
-    left: 0;
-    width: 100%;
-    height: 40%;
-    z-index: 10;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   CN TOWER - Dark Silhouette
-   ═══════════════════════════════════════════════════════════ */
-
-.cn-tower {
-    position: absolute;
-    bottom: 0;
-    left: 55%;
-    transform: translateX(-50%);
-    z-index: 25;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cn-antenna {
-    width: 3px;
-    height: 60px;
-    background: #1a1a1a;
-}
-
-.cn-top-sphere {
-    width: 10px;
-    height: 10px;
-    background: #181818;
-    border-radius: 2px;
-}
-
-.cn-neck-upper {
-    width: 5px;
-    height: 30px;
-    background: #171717;
-}
-
-.cn-pod {
-    width: 45px;
-    height: 25px;
-    background: #161616;
-    border-radius: 3px;
-    position: relative;
-}
-
-.cn-pod-windows {
-    display: none;
-}
-
-.cn-pod-lower {
-    width: 35px;
-    height: 12px;
-    background: #151515;
-    border-radius: 0 0 3px 3px;
-}
-
-.cn-shaft {
-    width: 7px;
-    height: 180px;
-    background: #141414;
-}
-
-.cn-base {
-    width: 25px;
-    height: 18px;
-    background: #131313;
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   BUILDINGS - Dark Silhouettes
-   ═══════════════════════════════════════════════════════════ */
-
-.buildings-left,
-.buildings-right {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    align-items: flex-end;
-    gap: 2px;
-}
-
-.buildings-left {
-    left: 2%;
-    right: 52%;
-    justify-content: flex-end;
-}
-
-.buildings-right {
-    left: 58%;
-    right: 2%;
-    justify-content: flex-start;
-}
-
-.building {
-    position: relative;
-}
-
-/* Individual building styles */
-.bld-l1 { width: 28px; height: 90px; background: #121212; }
-.bld-l2 { width: 35px; height: 140px; background: #101010; }
-.bld-l3 { width: 42px; height: 180px; background: #131313; }
-.bld-l4 { width: 32px; height: 130px; background: #0f0f0f; }
-.bld-l5 { width: 50px; height: 200px; background: #0e0e0e; }
-.bld-l6 { width: 40px; height: 160px; background: #111111; }
-.bld-l7 { width: 30px; height: 110px; background: #101010; }
-.bld-l8 { width: 48px; height: 190px; background: #0d0d0d; }
-.bld-l9 { width: 38px; height: 145px; background: #121212; }
-.bld-l10 { width: 32px; height: 120px; background: #0f0f0f; }
-
-.bld-r1 { width: 40px; height: 160px; background: #101010; }
-.bld-r2 { width: 52px; height: 210px; background: #0e0e0e; }
-.bld-r3 { width: 34px; height: 145px; background: #121212; }
-.bld-r4 { width: 44px; height: 175px; background: #0f0f0f; }
-.bld-r5 { width: 32px; height: 130px; background: #131313; }
-.bld-r6 { width: 55px; height: 230px; background: #0c0c0c; }
-.bld-r7 { width: 42px; height: 155px; background: #111111; }
-.bld-r8 { width: 30px; height: 110px; background: #141414; }
-.bld-r9 { width: 46px; height: 170px; background: #0f0f0f; }
-.bld-r10 { width: 35px; height: 138px; background: #111111; }
-
-/* ═══════════════════════════════════════════════════════════
-   BRIDGE - Dark silhouette
-   ═══════════════════════════════════════════════════════════ */
-
-.bridge {
-    position: absolute;
-    bottom: 32%;
-    left: 15%;
-    width: 180px;
-    height: 50px;
-    z-index: 15;
-}
-
-.bridge-deck {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: #161616;
-}
-
-.bridge-arch {
-    position: absolute;
-    bottom: 8px;
-    width: 70px;
-    height: 35px;
-    border: 4px solid #181818;
-    border-bottom: none;
-    border-radius: 70px 70px 0 0;
-    background: transparent;
-}
-
-.arch-1 { left: 10px; }
-.arch-2 { left: 90px; }
-
-.bridge-support {
-    position: absolute;
-    bottom: 0;
-    width: 6px;
-    height: 45px;
-    background: #171717;
-}
-
-.support-1 { left: 20px; }
-.support-2 { left: 90px; }
-.support-3 { left: 160px; }
-
-/* ═══════════════════════════════════════════════════════════
-   LAKE - Dark water
-   ═══════════════════════════════════════════════════════════ */
-
-.lake {
-    position: absolute;
-    bottom: 18%;
-    left: 0;
-    width: 100%;
-    height: 14%;
-    z-index: 12;
-    overflow: hidden;
-}
-
-.lake-surface {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, 
-        #0d0d0d 0%, 
-        #0f0f0f 30%, 
-        #0c0c0c 60%,
-        #0a0a0a 100%
-    );
-}
-
-.ripple {
-    position: absolute;
-    height: 1px;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.05) 20%,
-        rgba(255, 255, 255, 0.08) 50%,
-        rgba(255, 255, 255, 0.05) 80%,
-        transparent 100%
-    );
-}
-
-.ripple-1 { top: 20%; left: 25%; width: 80px; }
-.ripple-2 { top: 35%; left: 45%; width: 120px; }
-.ripple-3 { top: 50%; left: 30%; width: 90px; }
-.ripple-4 { top: 65%; left: 55%; width: 100px; }
-.ripple-5 { top: 80%; left: 35%; width: 70px; }
-
-.lake-reflections {
-    display: none;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   TREES & FOREGROUND - Dark silhouettes
-   ═══════════════════════════════════════════════════════════ */
-
-.trees-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 25%;
-    z-index: 20;
-}
-
-.tree-cluster {
-    position: absolute;
-    bottom: 8%;
-    display: flex;
-    align-items: flex-end;
-    gap: 5px;
-}
-
-.tree-cluster-left {
-    left: 3%;
-}
-
-.tree-cluster-right {
-    right: 3%;
-}
-
-.tree {
-    background: #0a150a;
-    border-radius: 50% 50% 10% 10%;
-    position: relative;
-}
-
-.tree::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 10px;
-    background: #0d0d0d;
-}
-
-.tree-1 { width: 35px; height: 45px; background: #081008; }
-.tree-2 { width: 45px; height: 55px; background: #0a130a; }
-.tree-3 { width: 30px; height: 40px; background: #070e07; }
-.tree-4 { width: 40px; height: 50px; background: #091209; }
-.tree-5 { width: 35px; height: 42px; background: #081008; }
-
-.bush {
-    background: #0a140a;
-    border-radius: 50%;
-}
-
-.bush-1 { width: 25px; height: 18px; background: #071007; }
-.bush-2 { width: 30px; height: 22px; background: #091309; }
-.bush-3 { width: 28px; height: 20px; background: #081108; }
-.bush-4 { width: 22px; height: 16px; background: #0a140a; }
-
-/* Waterfront Path - Dark */
-.waterfront-path {
-    position: absolute;
-    bottom: 5%;
-    left: 10%;
-    right: 10%;
-    height: 12px;
-    background: #121212;
-    border-top: 1px solid #1a1a1a;
-    z-index: 22;
-}
-
-.path-lamp {
-    position: absolute;
-    bottom: 100%;
-    width: 3px;
-    height: 20px;
-    background: #1a1a1a;
-}
-
-.path-lamp::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 6px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 2px;
-    box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.08);
-}
-
-.lamp-1 { left: 5%; }
-.lamp-2 { left: 25%; }
-.lamp-3 { left: 50%; }
-.lamp-4 { left: 75%; }
-.lamp-5 { left: 95%; }
-
-/* Foreground Foliage - Dark */
-.foreground-foliage {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 8%;
-    z-index: 25;
-}
-
-.foliage {
-    position: absolute;
-    bottom: 0;
-    background: #060d06;
-    border-radius: 60% 60% 0 0;
-}
-
-.foliage-1 {
-    left: 0;
-    width: 35%;
-    height: 100%;
-    background: linear-gradient(90deg, #050a05 0%, #070e07 50%, #060c06 100%);
-}
-
-.foliage-2 {
-    left: 30%;
-    width: 40%;
-    height: 80%;
-    background: #060c06;
-}
-
-.foliage-3 {
-    right: 0;
-    width: 35%;
-    height: 100%;
-    background: linear-gradient(90deg, #070d07 0%, #050a05 50%, #040904 100%);
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -736,24 +326,9 @@ body {
         width: auto;
         max-width: calc(100% - 40px);
     }
-    
+
     .name {
         font-size: 1.5rem;
-    }
-    
-    .cn-tower {
-        transform: translateX(-50%) scale(0.7);
-    }
-    
-    .buildings-left,
-    .buildings-right {
-        transform: scale(0.8);
-        transform-origin: bottom;
-    }
-    
-    .bridge {
-        transform: scale(0.7);
-        left: 5%;
     }
 
     .research-content {
@@ -765,15 +340,15 @@ body {
         border-right: none;
         background: rgba(0, 0, 0, 0.95);
     }
-    
+
     .research-title {
         font-size: 2rem;
     }
-    
+
     .research-section h2 {
         font-size: 1.25rem;
     }
-    
+
     .research-section p {
         font-size: 1.05rem;
         text-align: left;
@@ -781,32 +356,15 @@ body {
 }
 
 @media (max-width: 480px) {
-    .cn-tower {
-        transform: translateX(-50%) scale(0.5);
-    }
-    
-    .buildings-left,
-    .buildings-right {
-        display: none;
-    }
-    
-    .bridge {
-        display: none;
-    }
-    
-    .tree-cluster {
-        transform: scale(0.7);
-    }
-
     .research-content {
         padding: 20px 20px 50px;
     }
-    
+
     .research-title {
         font-size: 1.6rem;
         letter-spacing: 2px;
     }
-    
+
     .research-image-placeholder {
         height: 150px;
     }
