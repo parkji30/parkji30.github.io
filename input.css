@@ -87,3 +87,16 @@ body { font-family: var(--font-cormorant); background: #000; min-height: 100vh; 
     .research-title { font-size: 1.6rem; letter-spacing: 2px; }
     .research-image-placeholder { height: 150px; }
 }
+
+/* Ambient Text */
+.ambient-text {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    font-family: 'Homemade Apple', cursive;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.18);
+    z-index: 100;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+}

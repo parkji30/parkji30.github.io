@@ -17,7 +17,19 @@ pub fn about_card() -> Html {
                 <section class="research-section">
                     <h2>{"About"}</h2>
                     <p>
-                        {"Welcome to my personal website. I am a researcher and developer interested in computational science and software engineering."}
+                        {"Welcome to my personal website. I am currently a Staff ML Scientist at Xanadu, focusing on Automation and Optimization."}
+                    </p>
+                    <p>
+                        {"I currently lead the Agentic AI team to build the best possible Quantum Computing AI Scientist. On the side, I work closely with some of our physicists to make their software more performant using Jax, NumPy and other high performant packages in Python, and Rust for well defined static computations."}
+                    </p>
+                    <p>
+                        {"I currently live in Toronto, which I often think doesn't receive as much appreciation as it should from its residents."}
+                    </p>
+                    <p>    
+                        {"This website (i.e. the soft snowfall in the background), along with my blog and research page, was made to represent different aspects of my life."}
+                    </p>
+                    <p>
+                        {"Thank you for dropping by and I hope I can share something meaningful with you."}
                     </p>
                 </section>
 
