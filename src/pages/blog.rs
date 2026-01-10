@@ -1,7 +1,7 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use crate::components::{Snowfall, TorontoSkyline};
+use crate::components::Snowfall;
 use crate::Route;
 
 /// Blog page component
@@ -10,7 +10,6 @@ pub fn blog_page() -> Html {
     html! {
         <div class="app research-page">
             <Snowfall />
-            <TorontoSkyline />
 
             <div class="research-content">
                 <nav class="research-nav">

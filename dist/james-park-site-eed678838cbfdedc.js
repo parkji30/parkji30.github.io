@@ -244,16 +244,21 @@ if (!('encodeInto' in cachedTextEncoder)) {
 
 let WASM_VECTOR_LEN = 0;
 
-function wasm_bindgen__convert__closures________invoke__h11b0cfa05c8060fc(arg0, arg1, arg2) {
-    wasm.wasm_bindgen__convert__closures________invoke__h11b0cfa05c8060fc(arg0, arg1, arg2);
+function wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2) {
+    wasm.wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2);
 }
 
-function wasm_bindgen__convert__closures_____invoke__h1b5780d2c73c23b7(arg0, arg1, arg2) {
-    wasm.wasm_bindgen__convert__closures_____invoke__h1b5780d2c73c23b7(arg0, arg1, arg2);
+function wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8(arg0, arg1, arg2) {
+    wasm.wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8(arg0, arg1, arg2);
 }
 
-function wasm_bindgen__convert__closures________invoke__he6742b253a054f5f(arg0, arg1, arg2) {
-    wasm.wasm_bindgen__convert__closures________invoke__he6742b253a054f5f(arg0, arg1, arg2);
+function wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2) {
+    wasm.wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2);
+}
+
+function wasm_bindgen__convert__closures_____invoke__h4227a21717ae9571(arg0, arg1) {
+    const ret = wasm.wasm_bindgen__convert__closures_____invoke__h4227a21717ae9571(arg0, arg1);
+    return ret !== 0;
 }
 
 const EXPECTED_RESPONSE_TYPES = new Set(['basic', 'cors', 'default']);
@@ -405,6 +410,10 @@ function __wbg_get_imports() {
     }, arguments) };
     imports.wbg.__wbg_createElement_da4ed2b219560fc6 = function() { return handleError(function (arg0, arg1, arg2) {
         const ret = arg0.createElement(getStringFromWasm0(arg1, arg2));
+        return ret;
+    }, arguments) };
+    imports.wbg.__wbg_createTask_432d6d38dc688bee = function() { return handleError(function (arg0, arg1) {
+        const ret = console.createTask(getStringFromWasm0(arg0, arg1));
         return ret;
     }, arguments) };
     imports.wbg.__wbg_createTextNode_0cf8168f7646a5d2 = function(arg0, arg1, arg2) {
@@ -634,6 +643,13 @@ function __wbg_get_imports() {
         const ret = arg0.node;
         return ret;
     };
+    imports.wbg.__wbg_outerHTML_b7785cc998856712 = function(arg0, arg1) {
+        const ret = arg1.outerHTML;
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getDataViewMemory0().setInt32(arg0 + 4 * 1, len1, true);
+        getDataViewMemory0().setInt32(arg0 + 4 * 0, ptr1, true);
+    };
     imports.wbg.__wbg_parentElement_f12dbbdecc1452a6 = function(arg0) {
         const ret = arg0.parentElement;
         return isLikeNone(ret) ? 0 : addToExternrefTable0(ret);
@@ -700,6 +716,24 @@ function __wbg_get_imports() {
     imports.wbg.__wbg_resolve_fd5bfbaa4ce36e1e = function(arg0) {
         const ret = Promise.resolve(arg0);
         return ret;
+    };
+    imports.wbg.__wbg_run_51bf644e39739ca6 = function(arg0, arg1, arg2) {
+        try {
+            var state0 = {a: arg1, b: arg2};
+            var cb0 = () => {
+                const a = state0.a;
+                state0.a = 0;
+                try {
+                    return wasm_bindgen__convert__closures_____invoke__h4227a21717ae9571(a, state0.b, );
+                } finally {
+                    state0.a = a;
+                }
+            };
+            const ret = arg0.run(cb0);
+            return ret;
+        } finally {
+            state0.a = state0.b = 0;
+        }
     };
     imports.wbg.__wbg_search_856af82f9dccb2ef = function() { return handleError(function (arg0, arg1) {
         const ret = arg1.search;
@@ -803,6 +837,13 @@ function __wbg_get_imports() {
         const ret = arg0.__yew_subtree_id;
         return isLikeNone(ret) ? 0x100000001 : (ret) >>> 0;
     };
+    imports.wbg.__wbg_textContent_8083fbe3416e42c7 = function(arg0, arg1) {
+        const ret = arg1.textContent;
+        var ptr1 = isLikeNone(ret) ? 0 : passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        var len1 = WASM_VECTOR_LEN;
+        getDataViewMemory0().setInt32(arg0 + 4 * 1, len1, true);
+        getDataViewMemory0().setInt32(arg0 + 4 * 0, ptr1, true);
+    };
     imports.wbg.__wbg_then_4f95312d68691235 = function(arg0, arg1) {
         const ret = arg0.then(arg1);
         return ret;
@@ -830,14 +871,14 @@ function __wbg_get_imports() {
         const ret = getStringFromWasm0(arg0, arg1);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_abe9293975749f4b = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 49, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 52, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
-        const ret = makeClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h5b304990f06bf0ae, wasm_bindgen__convert__closures________invoke__he6742b253a054f5f);
+    imports.wbg.__wbindgen_cast_3e03ca06e54d5215 = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 616, function: Function { arguments: [Externref], shim_idx: 617, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h56f6a3a4a53317bb, wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_c94f16a2d28eed32 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 19, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 20, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
-        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h6d06c02ee925b367, wasm_bindgen__convert__closures________invoke__h11b0cfa05c8060fc);
+    imports.wbg.__wbindgen_cast_86ff5c296d766446 = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 641, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 642, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hf90c817fa78da523, wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c);
         return ret;
     };
     imports.wbg.__wbindgen_cast_cb9088102bce6b30 = function(arg0, arg1) {
@@ -845,9 +886,9 @@ function __wbg_get_imports() {
         const ret = getArrayU8FromWasm0(arg0, arg1);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_cfd578dc132ebaa8 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 49, function: Function { arguments: [Externref], shim_idx: 50, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
-        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h5b304990f06bf0ae, wasm_bindgen__convert__closures_____invoke__h1b5780d2c73c23b7);
+    imports.wbg.__wbindgen_cast_cc6e121c53bb1b75 = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 544, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 545, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
+        const ret = makeClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h57c9e008156bffd7, wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5);
         return ret;
     };
     imports.wbg.__wbindgen_cast_d6cd19b81560fd6e = function(arg0) {
@@ -912,7 +953,7 @@ async function __wbg_init(module_or_path) {
     }
 
     if (typeof module_or_path === 'undefined') {
-        module_or_path = new URL('james-park-site_bg.wasm', import.meta.url);
+        module_or_path = new URL('james-park-site-eed678838cbfdedc_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 
