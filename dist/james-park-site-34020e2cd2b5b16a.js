@@ -244,16 +244,16 @@ if (!('encodeInto' in cachedTextEncoder)) {
 
 let WASM_VECTOR_LEN = 0;
 
+function wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2) {
+    wasm.wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2);
+}
+
 function wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8(arg0, arg1, arg2) {
     wasm.wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8(arg0, arg1, arg2);
 }
 
 function wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2) {
     wasm.wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2);
-}
-
-function wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2) {
-    wasm.wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2);
 }
 
 function wasm_bindgen__convert__closures_____invoke__h4227a21717ae9571(arg0, arg1) {
@@ -953,7 +953,7 @@ async function __wbg_init(module_or_path) {
     }
 
     if (typeof module_or_path === 'undefined') {
-        module_or_path = new URL('james-park-site-94a07562907806fb_bg.wasm', import.meta.url);
+        module_or_path = new URL('james-park-site-34020e2cd2b5b16a_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 
