@@ -9,40 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="/styles-f59fe096f8f09fdd.css">
+    <link rel="stylesheet" href="/styles-6a33d82ddf99cfdc.css">
     
-    <script type="module">import init from '/james-park-site-eed678838cbfdedc.js';init('/james-park-site-eed678838cbfdedc_bg.wasm');</script>
+    <script type="module">import init from '/james-park-site-2555036f2a438ecc.js';init('/james-park-site-2555036f2a438ecc_bg.wasm');</script>
 
-<link rel="preload" href="/james-park-site-eed678838cbfdedc_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
-<link rel="modulepreload" href="/james-park-site-eed678838cbfdedc.js"></head>
+<link rel="preload" href="/james-park-site-2555036f2a438ecc_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/james-park-site-2555036f2a438ecc.js"></head>
 <body>
 
 
-<script>(function () {
-    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    var url = protocol + '//' + window.location.host + '/_trunk/ws';
-    var poll_interval = 5000;
-    var reload_upon_connect = () => {
-        window.setTimeout(
-            () => {
-                // when we successfully reconnect, we'll force a
-                // reload (since we presumably lost connection to
-                // trunk due to it being killed, so it will have
-                // rebuilt on restart)
-                var ws = new WebSocket(url);
-                ws.onopen = () => window.location.reload();
-                ws.onclose = reload_upon_connect;
-            },
-            poll_interval);
-    };
-
-    var ws = new WebSocket(url);
-    ws.onmessage = (ev) => {
-        const msg = JSON.parse(ev.data);
-        if (msg.reload) {
-            window.location.reload();
-        }
-    };
-    ws.onclose = reload_upon_connect;
-})()
-</script></body></html>
+</body></html>

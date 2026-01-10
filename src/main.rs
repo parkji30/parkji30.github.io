@@ -4,6 +4,7 @@ mod pages;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
+use components::Snowfall;
 use pages::{BlogPage, HomePage, ResearchPage};
 
 /// Routes for the application
@@ -32,6 +33,7 @@ fn switch(routes: Route) -> Html {
 fn app() -> Html {
     html! {
         <BrowserRouter>
+            <Snowfall />
             <Switch<Route> render={switch} />
         </BrowserRouter>
     }
