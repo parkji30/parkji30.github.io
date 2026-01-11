@@ -3,12 +3,35 @@ use yew_router::prelude::*;
 
 use crate::Route;
 
-/// Blog page component
+/// Blog post data
+struct BlogPostData {
+    slug: &'static str,
+    title: &'static str,
+    date: &'static str,
+    description: &'static str,
+    photos: &'static [&'static str],
+}
+
+const BLOG_POSTS: &[BlogPostData] = &[
+    BlogPostData {
+        slug: "sauble-beach",
+        title: "Sauble Beach",
+        date: "January 2025",
+        description: "This is my trip to Sauble Beach!",
+        photos: &[
+            "/assets/photos/sauble_beach/background.jpeg",
+            "/assets/photos/sauble_beach/clear water.jpeg",
+            "/assets/photos/sauble_beach/seagull.jpeg",
+            "/assets/photos/sauble_beach/us.jpeg",
+        ],
+    },
+];
+
+/// Blog listing page component
 #[function_component(BlogPage)]
 pub fn blog_page() -> Html {
     html! {
         <div class="app research-page">
-
             <div class="research-content">
                 <nav class="research-nav">
                     <Link<Route> to={Route::Home} classes="back-link">
@@ -22,25 +45,128 @@ pub fn blog_page() -> Html {
                         <div class="research-divider"></div>
                     </header>
 
+                    <div class="blog-posts-list">
+                        { for BLOG_POSTS.iter().map(|post| {
+                            html! {
+                                <Link<Route> to={Route::BlogPost { slug: post.slug.to_string() }} classes="blog-post-link">
+                                    <span class="blog-post-link-title">{post.title}</span>
+                                    <span class="blog-post-link-date">{post.date}</span>
+                                </Link<Route>>
+                            }
+                        })}
+                    </div>
+                </article>
+            </div>
+        </div>
+    }
+}
 
-                    <div class="blog-divider"></div>
+/// Blog post page properties
+#[derive(Properties, PartialEq)]
+pub struct BlogPostProps {
+    pub slug: String,
+}
+
+/// Individual blog post page component
+#[function_component(BlogPostPage)]
+pub fn blog_post_page(props: &BlogPostProps) -> Html {
+    let selected_index = use_state(|| None::<usize>);
+
+    // Find the blog post by slug
+    let post = BLOG_POSTS.iter().find(|p| p.slug == props.slug);
+
+    let Some(post) = post else {
+        return html! {
+            <div class="app research-page">
+                <div class="research-content">
+                    <nav class="research-nav">
+                        <Link<Route> to={Route::Blog} classes="back-link">
+                            {"← Back to Blog"}
+                        </Link<Route>>
+                    </nav>
+                    <article class="research-article">
+                        <h1 class="research-title">{"Post Not Found"}</h1>
+                    </article>
+                </div>
+            </div>
+        };
+    };
+
+    let photos = post.photos;
+
+    let close_lightbox = {
+        let selected_index = selected_index.clone();
+        Callback::from(move |e: MouseEvent| {
+            e.stop_propagation();
+            selected_index.set(None)
+        })
+    };
+
+    let open_lightbox = |index: usize| {
+        let selected_index = selected_index.clone();
+        Callback::from(move |_| selected_index.set(Some(index)))
+    };
+
+    let go_prev = {
+        let selected_index = selected_index.clone();
+        let len = photos.len();
+        Callback::from(move |e: MouseEvent| {
+            e.stop_propagation();
+            if let Some(idx) = *selected_index {
+                let new_idx = if idx == 0 { len - 1 } else { idx - 1 };
+                selected_index.set(Some(new_idx));
+            }
+        })
+    };
+
+    let go_next = {
+        let selected_index = selected_index.clone();
+        let len = photos.len();
+        Callback::from(move |e: MouseEvent| {
+            e.stop_propagation();
+            if let Some(idx) = *selected_index {
+                let new_idx = if idx >= len - 1 { 0 } else { idx + 1 };
+                selected_index.set(Some(new_idx));
+            }
+        })
+    };
+
+    html! {
+        <div class="app research-page">
+
+            // Lightbox modal
+            if let Some(idx) = *selected_index {
+                <div class="lightbox-overlay" onclick={close_lightbox.clone()}>
+                    <button class="lightbox-nav lightbox-prev" onclick={go_prev}>{"‹"}</button>
+                    <img src={photos[idx]} class="lightbox-image" onclick={Callback::from(|e: MouseEvent| e.stop_propagation())} />
+                    <button class="lightbox-nav lightbox-next" onclick={go_next}>{"›"}</button>
+                    <span class="lightbox-close" onclick={close_lightbox.clone()}>{"×"}</span>
+                </div>
+            }
+
+            <div class="research-content">
+                <nav class="research-nav">
+                    <Link<Route> to={Route::Blog} classes="back-link">
+                        {"← Back to Blog"}
+                    </Link<Route>>
+                </nav>
+
+                <article class="research-article">
+                    <header class="research-header">
+                        <h1 class="research-title">{post.title}</h1>
+                        <div class="research-divider"></div>
+                    </header>
 
                     <section class="blog-post">
-                        <h2 class="blog-post-title">{"Winter in Toronto"}</h2>
-                        <span class="blog-date">{"December 21, 2025"}</span>
-                        <div class="research-image-placeholder">
-                            <span>{"[ Winter Photo ]"}</span>
+                        <p>{post.description}</p>
+                        <div class="blog-photo-grid">
+                            { for photos.iter().enumerate().map(|(i, src)| {
+                                html! {
+                                    <img src={*src} alt={format!("{} photo", post.title)} class="blog-photo" onclick={open_lightbox(i)} />
+                                }
+                            })}
                         </div>
-                        <p>
-                            {"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."}
-                        </p>
-                        <p>
-                            {"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."}
-                        </p>
                     </section>
-
-                    <div class="blog-divider"></div>
-
                 </article>
             </div>
         </div>
