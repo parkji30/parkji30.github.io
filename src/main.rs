@@ -5,7 +5,7 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 use components::{AmbientText, Snowfall};
-use pages::{BlogPage, BlogPostPage, HomePage, ResearchPage};
+use pages::{BlogPage, BlogPostPage, HomePage, ResearchPage, ResearchPostPage};
 
 /// Routes for the application
 #[derive(Clone, Routable, PartialEq)]
@@ -14,6 +14,8 @@ pub enum Route {
     Home,
     #[at("/research")]
     Research,
+    #[at("/research/:slug")]
+    ResearchPost { slug: String },
     #[at("/blog")]
     Blog,
     #[at("/blog/:slug")]
@@ -26,6 +28,7 @@ fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! { <HomePage /> },
         Route::Research => html! { <ResearchPage /> },
+        Route::ResearchPost { slug } => html! { <ResearchPostPage slug={slug} /> },
         Route::Blog => html! { <BlogPage /> },
         Route::BlogPost { slug } => html! { <BlogPostPage slug={slug} /> },
     }
@@ -37,7 +40,7 @@ fn app_content() -> Html {
     let route = use_route::<Route>().unwrap_or(Route::Home);
     let route_key = match route {
         Route::Home => "home",
-        Route::Research => "research",
+        Route::Research | Route::ResearchPost { .. } => "research",
         Route::Blog | Route::BlogPost { .. } => "blog",
     };
 

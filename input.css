@@ -75,11 +75,11 @@ body { font-family: var(--font-cormorant); background: #000; min-height: 100vh; 
 .back-link:hover { color: #fff; }
 .research-article { color: var(--color-off-white); }
 .research-header { text-align: center; margin-bottom: 50px; }
-.research-title { font-size: 2.8rem; font-weight: 400; color: #fff; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+.research-title { font-size: 2.8rem; font-weight: 400; color: #fff; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; word-wrap: break-word; overflow-wrap: break-word; }
 .research-divider { width: 80px; height: 1px; background: var(--color-gray-light); margin: 0 auto; }
 .research-section { margin-bottom: 45px; }
 .research-section h2 { font-size: 1.5rem; font-weight: 500; color: #fff; letter-spacing: 2px; margin-bottom: 18px; text-transform: uppercase; }
-.research-section p, .blog-post p { font-size: 1.15rem; line-height: 1.85; color: var(--color-gray-pale); margin-bottom: 18px; text-align: justify; }
+.research-section p, .blog-post p { font-size: 1.15rem; line-height: 1.85; color: var(--color-gray-pale); margin-bottom: 18px; text-align: justify; white-space: pre-line; }
 .research-image-placeholder { width: 100%; height: 200px; background: rgba(26,26,26,.8); border: 1px solid var(--color-gray-medium); display: flex; align-items: center; justify-content: center; margin: 25px 0; }
 .research-image-placeholder span { color: var(--color-gray-lighter); font-size: 1rem; letter-spacing: 1px; font-style: italic; }
 .publications-list { list-style: none; padding: 0; }
@@ -87,22 +87,25 @@ body { font-family: var(--font-cormorant); background: #000; min-height: 100vh; 
 .publications-list li:last-child { border-bottom: none; }
 .pub-title { font-size: 1.1rem; font-style: italic; color: #fff; }
 .pub-meta { font-size: .95rem; color: var(--color-gray-lighter); }
+/* Shared listing styles for blog & research */
+.posts-list { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
+.post-link { display: flex; justify-content: space-between; align-items: center; width: 100%; text-decoration: none; color: var(--color-gray-pale); transition: color 0.2s ease; }
+.post-link:hover { color: #fff; }
+.post-link-title { font-size: 1.1rem; }
+.post-link-date { font-size: 0.9rem; color: var(--color-gray-lighter); font-style: italic; white-space: nowrap; }
+
+/* Blog specific */
 .blog-post { margin-bottom: 35px; }
 .blog-post-title { font-size: 1.4rem; font-weight: 500; color: #fff; letter-spacing: 1px; margin-bottom: 8px; }
 .blog-date { display: block; font-size: .9rem; font-style: italic; color: var(--color-gray-lighter); margin-bottom: 18px; letter-spacing: .5px; }
 .blog-divider { width: 100%; height: 1px; background: var(--color-gray-medium); margin: 40px 0; }
-.blog-posts-list { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
-.blog-post-link { display: flex; justify-content: space-between; align-items: center; width: 100%; text-decoration: none; color: var(--color-gray-pale); transition: color 0.2s ease; }
-.blog-post-link:hover { color: #fff; }
-.blog-post-link-title { font-size: 1.1rem; }
-.blog-post-link-date { font-size: 0.9rem; color: var(--color-gray-lighter); font-style: italic; }
 .blog-photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
 .blog-photo { width: 100%; height: 150px; object-fit: cover; border: 1px solid var(--color-gray-medium); cursor: pointer; transition: transform 0.2s ease, opacity 0.2s ease; }
 .blog-photo:hover { opacity: 0.85; transform: scale(1.02); }
 
 /* Lightbox */
 .lightbox-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0); z-index: 1000; display: flex; align-items: center; justify-content: center; cursor: pointer; animation: fadeInOverlay 0.3s ease forwards; }
-.lightbox-image { max-width: 50%; max-height: 50%; object-fit: contain; border: 1px solid var(--color-gray-medium); transform: scale(0.8); opacity: 0; animation: zoomIn 0.3s ease forwards; cursor: default; }
+.lightbox-image { max-width: 70%; max-height: 70%; object-fit: contain; border: 1px solid var(--color-gray-medium); transform: scale(0.8); opacity: 0; animation: zoomIn 0.3s ease forwards; cursor: default; }
 .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 2.5rem; color: #fff; cursor: pointer; opacity: 0; animation: fadeIn 0.3s ease 0.1s forwards; transition: color 0.2s ease; }
 .lightbox-close:hover { color: var(--color-gray-pale); }
 .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.1); border: 1px solid var(--color-gray-medium); color: #fff; font-size: 2.5rem; width: 50px; height: 70px; cursor: pointer; opacity: 0; animation: fadeIn 0.3s ease 0.15s forwards; transition: background 0.2s ease, color 0.2s ease; display: flex; align-items: center; justify-content: center; }

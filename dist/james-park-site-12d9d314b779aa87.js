@@ -244,16 +244,16 @@ if (!('encodeInto' in cachedTextEncoder)) {
 
 let WASM_VECTOR_LEN = 0;
 
+function wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2) {
+    wasm.wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2);
+}
+
 function wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8(arg0, arg1, arg2) {
     wasm.wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8(arg0, arg1, arg2);
 }
 
 function wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2) {
     wasm.wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5(arg0, arg1, arg2);
-}
-
-function wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2) {
-    wasm.wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c(arg0, arg1, arg2);
 }
 
 function wasm_bindgen__convert__closures_____invoke__h4227a21717ae9571(arg0, arg1) {
@@ -869,8 +869,8 @@ function __wbg_get_imports() {
         const ret = arg0.versions;
         return ret;
     };
-    imports.wbg.__wbindgen_cast_098e11b7e1cd246a = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 761, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 762, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+    imports.wbg.__wbindgen_cast_219a757168c0ac00 = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 792, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 793, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
         const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__hf90c817fa78da523, wasm_bindgen__convert__closures________invoke__h18d09a9b7461572c);
         return ret;
     };
@@ -879,14 +879,14 @@ function __wbg_get_imports() {
         const ret = getStringFromWasm0(arg0, arg1);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_3e2a8163079105fd = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 663, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 664, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
-        const ret = makeClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h57c9e008156bffd7, wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5);
+    imports.wbg.__wbindgen_cast_b0b7b4763c1ed67b = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 767, function: Function { arguments: [Externref], shim_idx: 768, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h56f6a3a4a53317bb, wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_a6b5c81cd95f3049 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 736, function: Function { arguments: [Externref], shim_idx: 737, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
-        const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h56f6a3a4a53317bb, wasm_bindgen__convert__closures_____invoke__h38843eb2aa2c34c8);
+    imports.wbg.__wbindgen_cast_c1f2f5370ab2b92a = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 694, function: Function { arguments: [Ref(NamedExternref("Event"))], shim_idx: 695, ret: Unit, inner_ret: Some(Unit) }, mutable: false }) -> Externref`.
+        const ret = makeClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h57c9e008156bffd7, wasm_bindgen__convert__closures________invoke__h086ff63ed9405ae5);
         return ret;
     };
     imports.wbg.__wbindgen_cast_cb9088102bce6b30 = function(arg0, arg1) {
@@ -956,7 +956,7 @@ async function __wbg_init(module_or_path) {
     }
 
     if (typeof module_or_path === 'undefined') {
-        module_or_path = new URL('james-park-site-9d86e182904aceb_bg.wasm', import.meta.url);
+        module_or_path = new URL('james-park-site-12d9d314b779aa87_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 

@@ -17,7 +17,7 @@ const BLOG_POSTS: &[BlogPostData] = &[
         slug: "sauble-beach",
         title: "Sauble Beach",
         date: "January 2025",
-        description: "This is my trip to Sauble Beach!",
+        description: "We might not have salt ocean beaches with tropical weather, but our beaches shouldn't be overlooked!\n\nThree hours northwest from the great city of Toronto, off the coast of Lake Huron, lies Sauble Beach.\n\nI'll let the photos speak for themselves.",
         photos: &[
             "/assets/photos/sauble_beach/background.jpeg",
             "/assets/photos/sauble_beach/clear water.jpeg",
@@ -45,12 +45,12 @@ pub fn blog_page() -> Html {
                         <div class="research-divider"></div>
                     </header>
 
-                    <div class="blog-posts-list">
+                    <div class="posts-list">
                         { for BLOG_POSTS.iter().map(|post| {
                             html! {
-                                <Link<Route> to={Route::BlogPost { slug: post.slug.to_string() }} classes="blog-post-link">
-                                    <span class="blog-post-link-title">{post.title}</span>
-                                    <span class="blog-post-link-date">{post.date}</span>
+                                <Link<Route> to={Route::BlogPost { slug: post.slug.to_string() }} classes="post-link">
+                                    <span class="post-link-title">{post.title}</span>
+                                    <span class="post-link-date">{post.date}</span>
                                 </Link<Route>>
                             }
                         })}
