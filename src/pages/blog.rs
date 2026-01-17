@@ -37,9 +37,9 @@ const BLOG_POSTS: &[BlogPostData] = &[
         date: "Jan 17, 2025",
         description: "More photos of blue mountain coming soon (The road doesn't do it justice)",
         photos: &[
-            "/assets/photos/blue mountsin/road1.jpeg",
-            "/assets/photos/blue mountsin/road2.jpeg",
-            "/assets/photos/blue mountsin/road3.jpeg",
+            "/assets/photos/blue_mountain/road1.jpeg",
+            "/assets/photos/blue_mountain/road2.jpeg",
+            "/assets/photos/blue_mountain/road3.jpeg",
         ],
     },
 ];
