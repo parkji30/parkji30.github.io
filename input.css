@@ -125,6 +125,15 @@ body { font-family: var(--font-cormorant); background: #000; min-height: 100vh; 
     .research-title { font-size: 2rem; }
     .research-section h2 { font-size: 1.25rem; }
     .research-section p { font-size: 1.05rem; text-align: left; }
+
+    /* Lightbox nav arrows - position at bottom on mobile */
+    .lightbox-nav { top: auto; bottom: 30px; transform: none; width: 60px; height: 50px; font-size: 2rem; }
+    .lightbox-prev { left: calc(50% - 70px); }
+    .lightbox-next { right: calc(50% - 70px); }
+    .lightbox-image { max-width: 90%; max-height: 60%; }
+
+    /* Ambient text - show at top on mobile so it's not covered by content */
+    .ambient-text { top: 15px; bottom: auto; right: 20px; font-size: 0.75rem; }
 }
 @media (max-width: 480px) {
     .research-content { padding: 20px 20px 50px; }

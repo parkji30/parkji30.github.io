@@ -24,7 +24,6 @@ const BLOG_POSTS: &[BlogPostData] = &[
             "/assets/photos/sauble_beach/entrance.jpg",
             "/assets/photos/sauble_beach/me.jpg",
             "/assets/photos/sauble_beach/nature.jpg",
-            "/assets/photos/sauble_beach/panorama.jpg",
             "/assets/photos/sauble_beach/seagull.jpg",
             "/assets/photos/sauble_beach/sunset.jpg",
             "/assets/photos/sauble_beach/sunset2.jpg",
