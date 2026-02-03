@@ -10,27 +10,20 @@ pub struct Snowflake {
     duration: f64,
     delay: f64,
     opacity: f64,
-    rotation_duration: f64,
+    spin_duration: f64,
 }
 
 impl Snowflake {
     pub fn new(id: usize) -> Self {
         let mut rng = rand::thread_rng();
-        // Only ~40% of snowflakes rotate
-        let should_rotate = rng.gen_bool(0.4);
         Self {
             id,
             x: rng.gen_range(0.0..100.0),
             size: rng.gen_range(3.0..8.0),
-            duration: rng.gen_range(10.0..18.0),
-            delay: rng.gen_range(0.0..12.0),
-            opacity: rng.gen_range(0.6..1.0),
-            // Slower rotation: 4-10 seconds per rotation, or 0 for no rotation
-            rotation_duration: if should_rotate {
-                rng.gen_range(4.0..10.0)
-            } else {
-                0.0
-            },
+            duration: rng.gen_range(18.0..20.0),
+            delay: rng.gen_range(0.0..15.0),
+            opacity: rng.gen_range(0.6..0.7),
+            spin_duration: rng.gen_range(5.0..8.0),
         }
     }
 }
@@ -45,18 +38,13 @@ struct SnowflakeProps {
 #[function_component(SnowflakeComponent)]
 fn snowflake_component(props: &SnowflakeProps) -> Html {
     let sf = &props.snowflake;
-    let class = if sf.rotation_duration > 0.0 {
-        "snowflake rotating"
-    } else {
-        "snowflake"
-    };
     let style = format!(
-        "left: {}%; width: {}px; height: {}px; opacity: {}; --fall-duration: {}s; --rotation-duration: {}s; animation-delay: {}s;",
-        sf.x, sf.size, sf.size, sf.opacity, sf.duration, sf.rotation_duration, sf.delay
+        "left: {}%; width: {}px; height: {}px; opacity: {}; --fall-duration: {}s; --spin-duration: {}s; animation-delay: {}s;",
+        sf.x, sf.size, sf.size, sf.opacity, sf.duration, sf.spin_duration, sf.delay
     );
 
     html! {
-        <div class={class} style={style}></div>
+        <div class="snowflake" style={style}></div>
     }
 }
 

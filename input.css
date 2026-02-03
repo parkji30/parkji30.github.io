@@ -22,20 +22,31 @@ body { font-family: var(--font-cormorant); background: #000; min-height: 100vh; 
 .app { width: 100%; height: 100vh; position: relative; overflow: hidden; background: #000; }
 .research-page { overflow-y: auto; overflow-x: hidden; background: transparent; }
 
-/* Snowfall */
-.snowfall-container { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+/* Snowfall - GPU accelerated */
+.snowfall-container { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; contain: strict; }
 .snowflake {
-    position: absolute; top: -20px; background: #fff; border-radius: 0;
-    image-rendering: pixelated; box-shadow: 0 0 3px #fff, 0 0 6px rgba(255,255,255,.5);
-    animation: fall var(--fall-duration, 10s) linear infinite, drift var(--fall-duration, 10s) ease-in-out infinite;
+    position: absolute; top: 0; background: rgba(255, 255, 255, 0.4); border-radius: 0;
+    image-rendering: pixelated;
+    will-change: transform, rotate;
+    backface-visibility: hidden;
+    animation: snowfall var(--fall-duration, 10s) linear infinite, snowspin var(--spin-duration, 3s) ease-in-out infinite;
+    animation-fill-mode: backwards;
 }
-.snowflake.rotating { animation: fall var(--fall-duration, 10s) linear infinite, spin var(--rotation-duration, 6s) linear infinite; }
-@keyframes fall { 0% { top: -20px } 100% { top: 100vh } }
-@keyframes drift { 0%, 100% { transform: translateX(0) } 25% { transform: translateX(8px) } 75% { transform: translateX(-8px) } }
-@keyframes spin {
-    0% { transform: rotate(0deg) translateX(0) } 25% { transform: rotate(90deg) translateX(6px) }
-    50% { transform: rotate(180deg) translateX(-4px) } 75% { transform: rotate(270deg) translateX(5px) }
-    100% { transform: rotate(360deg) translateX(0) }
+@keyframes snowspin {
+    0%, 100% { rotate: 0deg }
+    25% { rotate: 8deg }
+    75% { rotate: -8deg }
+}
+@keyframes snowfall {
+    0% { transform: translate3d(0, -20px, 0) }
+    12.5% { transform: translate3d(5px, 12vh, 0) }
+    25% { transform: translate3d(0, 25vh, 0) }
+    37.5% { transform: translate3d(-5px, 37vh, 0) }
+    50% { transform: translate3d(0, 50vh, 0) }
+    62.5% { transform: translate3d(5px, 62vh, 0) }
+    75% { transform: translate3d(0, 75vh, 0) }
+    87.5% { transform: translate3d(-5px, 87vh, 0) }
+    100% { transform: translate3d(0, 100vh, 0) }
 }
 
 /* Home */

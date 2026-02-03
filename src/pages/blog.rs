@@ -39,6 +39,9 @@ const BLOG_POSTS: &[BlogPostData] = &[
             "/assets/photos/blue_mountain/road1.jpeg",
             "/assets/photos/blue_mountain/road2.jpeg",
             "/assets/photos/blue_mountain/road3.jpeg",
+            "/assets/photos/blue_mountain/afternoon_mountain_top.jpeg", 
+            "/assets/photos/blue_mountain/evening_mountain_top.jpeg",
+            "/assets/photos/blue_mountain/village_night.jpeg",
         ],
     },
 ];
