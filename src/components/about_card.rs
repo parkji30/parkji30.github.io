@@ -24,6 +24,9 @@ pub fn about_card() -> Html {
                     <Link<Route> to={Route::Blog} classes="home-link-item">
                         {"Blog"}
                     </Link<Route>>
+                    <Link<Route> to={Route::Inspirations} classes="home-link-item">
+                        {"Inspirations"}
+                    </Link<Route>>
                 </nav>
 
                 <section class="research-section">
@@ -38,7 +41,7 @@ pub fn about_card() -> Html {
                         {"I currently live in Toronto, an underrated city that doesn't receive as much appreciation as it should from its residents."}
                     </p>
                     <p>
-                        {"This website (i.e. the soft snowfall in the background), along with my blog and research page, was made to represent different aspects of my life."}
+                        {"This website (i.e. the soft snowfall in the background), along with my blog, research, and inspirations pages, was made to represent different aspects of my life."}
                     </p>
                     <p>
                         {"Thank you for dropping by and I hope I can share something meaningful with you."}
