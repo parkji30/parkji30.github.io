@@ -10,11 +10,23 @@ struct InspirationLink {
     note: &'static str,
 }
 
-const INSPIRATIONS: &[InspirationLink] = &[InspirationLink {
-    title: "Math and me",
-    url: "https://togelius.blogspot.com/2026/02/math-and-me.html#:~:text=I%20also%20always%20hated%20math,me%20get%20better%20at%20math.",
-    note: "Julian Togelius - reflections on math, programming, and research",
-}];
+const INSPIRATIONS: &[InspirationLink] = &[
+    InspirationLink {
+        title: "Math and me",
+        url: "https://togelius.blogspot.com/2026/02/math-and-me.html#:~:text=I%20also%20always%20hated%20math,me%20get%20better%20at%20math.",
+        note: "Julian Togelius - reflections on math, programming, and research",
+    },
+    InspirationLink {
+        title: "OpenClaw creator Peter Steinberger joins OpenAI",
+        url: "https://www.reuters.com/business/openclaw-founder-steinberger-joins-openai-open-source-bot-becomes-foundation-2026-02-15/",
+        note: "Peter Steinberger, creator of the viral open-source AI agent OpenClaw, joined OpenAI without a formal PhD — proof that impactful work speaks for itself",
+    },
+    InspirationLink {
+        title: "Anthropic",
+        url: "https://www.anthropic.com/careers/jobs",
+        note: "Anthropic doesn't even list PhD or Masters as one of their requirements / 'nice to haves' on their career page."
+    }
+];
 
 const AI_RESEARCHERS_WITHOUT_PHDS: &[&str] = &[
     "David Ha",
@@ -23,6 +35,8 @@ const AI_RESEARCHERS_WITHOUT_PHDS: &[&str] = &[
     "Christopher Olas",
     "Jeremy Howard",
     "Aleksa Gordic",
+    "Peter Steinberger",
+    "Llion Jones"
 ];
 
 /// Inspirations page component
@@ -44,7 +58,7 @@ pub fn inspirations_page() -> Html {
                     </header>
 
                     <section class="research-section">
-                        <h2>{"Testimonies From Other Researchers"}</h2>
+                        <h2>{"Stories"}</h2>
                         <ul class="publications-list">
                             { for INSPIRATIONS.iter().map(|item| {
                                 html! {

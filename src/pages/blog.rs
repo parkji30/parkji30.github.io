@@ -44,6 +44,13 @@ const BLOG_POSTS: &[BlogPostData] = &[
             "/assets/photos/blue_mountain/village_night.jpeg",
         ],
     },
+    BlogPostData {
+        slug: "korea",
+        title: "Korea",
+        date: "Feb 16, 2026",
+        description: "A trip to Korea with my family.\n\nPhotos coming soon!",
+        photos: &[],
+    },
 ];
 
 /// Blog listing page component
