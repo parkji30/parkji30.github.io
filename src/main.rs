@@ -4,7 +4,7 @@ mod pages;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use components::{AmbientText, Snowfall};
+use components::Snowfall;
 use pages::{BlogPage, BlogPostPage, HomePage, InspirationsPage, ResearchPage, ResearchPostPage};
 
 /// Routes for the application
@@ -40,19 +40,10 @@ fn switch(routes: Route) -> Html {
 /// Inner app component that has access to router context
 #[function_component(AppContent)]
 fn app_content() -> Html {
-    let route = use_route::<Route>().unwrap_or(Route::Home);
-    let route_key = match route {
-        Route::Home => "home",
-        Route::Research | Route::ResearchPost { .. } => "research",
-        Route::Blog | Route::BlogPost { .. } => "blog",
-        Route::Inspirations => "inspirations",
-    };
-
     html! {
         <>
             <Snowfall />
             <Switch<Route> render={switch} />
-            <AmbientText route_key={route_key} />
         </>
     }
 }
