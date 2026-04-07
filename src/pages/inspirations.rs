@@ -4,27 +4,32 @@ use yew_router::prelude::*;
 use crate::Route;
 
 /// Inspiration link data
-struct InspirationLink {
+struct AIStories {
     title: &'static str,
     url: &'static str,
     note: &'static str,
 }
 
-const INSPIRATIONS: &[InspirationLink] = &[
-    InspirationLink {
+const INSPIRATIONS: &[AIStories] = &[
+    AIStories {
         title: "Math and me",
         url: "https://togelius.blogspot.com/2026/02/math-and-me.html#:~:text=I%20also%20always%20hated%20math,me%20get%20better%20at%20math.",
         note: "Julian Togelius - reflections on math, programming, and research",
     },
-    InspirationLink {
+    AIStories {
         title: "OpenClaw creator Peter Steinberger joins OpenAI",
         url: "https://www.reuters.com/business/openclaw-founder-steinberger-joins-openai-open-source-bot-becomes-foundation-2026-02-15/",
         note: "Peter Steinberger, creator of the viral open-source AI agent OpenClaw, joined OpenAI without a formal PhD — proof that impactful work speaks for itself",
     },
-    InspirationLink {
-        title: "Anthropic",
-        url: "https://www.anthropic.com/careers/jobs",
-        note: "Anthropic doesn't even list PhD or Masters as one of their requirements / 'nice to haves' on their career page."
+    AIStories {
+        title: "How To Work At Anthropic (From Astrophysics)",
+        url: "https://evanhanders.blog/2026/04/02/my-path-from-astrophysics-postdoc-to-anthropic/",
+        note: "Hint- Focus on your engineering fundamentals!"
+    },
+    AIStories {
+        title: "AI Safety Needs Great Engineers",
+        url: "https://www.lesswrong.com/posts/YDF7XhMThhNfHfim9/ai-safety-needs-great-engineers",
+        note: "Hint- Focus on your engineering fundamentals!"
     }
 ];
 
@@ -36,7 +41,8 @@ const AI_RESEARCHERS_WITHOUT_PHDS: &[&str] = &[
     "Jeremy Howard",
     "Aleksa Gordic",
     "Peter Steinberger",
-    "Llion Jones"
+    "Llion Jones",
+    "Will DePue (College Dropout)"
 ];
 
 /// Inspirations page component
