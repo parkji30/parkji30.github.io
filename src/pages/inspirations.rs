@@ -24,12 +24,12 @@ const INSPIRATIONS: &[AIStories] = &[
     AIStories {
         title: "How To Work At Anthropic (From Astrophysics)",
         url: "https://evanhanders.blog/2026/04/02/my-path-from-astrophysics-postdoc-to-anthropic/",
-        note: "Hint- Focus on your engineering fundamentals!"
+        note: "Hint- Focus on your engineering fundamentals!",
     },
     AIStories {
         title: "AI Safety Needs Great Engineers",
         url: "https://www.lesswrong.com/posts/YDF7XhMThhNfHfim9/ai-safety-needs-great-engineers",
-        note: "Hint- Focus on your engineering fundamentals!"
+        note: "Hint- Focus on your engineering fundamentals!",
     }
 ];
 
