@@ -29,7 +29,7 @@ const INSPIRATIONS: &[AIStories] = &[
     AIStories {
         title: "AI Safety Needs Great Engineers",
         url: "https://www.lesswrong.com/posts/YDF7XhMThhNfHfim9/ai-safety-needs-great-engineers",
-        note: "Hint- Focus on your engineering fundamentals!",
+        note: "You getting the message now?",
     }
 ];
 
