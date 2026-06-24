@@ -30,6 +30,11 @@ const INSPIRATIONS: &[AIStories] = &[
         title: "AI Safety Needs Great Engineers",
         url: "https://www.lesswrong.com/posts/YDF7XhMThhNfHfim9/ai-safety-needs-great-engineers",
         note: "You getting the message now?",
+    },
+    AIStories {
+        title: "How to land a job at a Frontier Lab",
+        url: "https://vladfeinberg.com/2026/05/10/how-to-land-a-job-at-a-frontier-lab.html",
+        note: "Engineering but being able to think in a scientific way.",
     }
 ];
 
