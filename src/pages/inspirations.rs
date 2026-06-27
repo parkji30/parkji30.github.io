@@ -38,7 +38,7 @@ const INSPIRATIONS: &[AIStories] = &[
     }
 ];
 
-const AI_RESEARCHERS_WITHOUT_PHDS: &[&str] = &[
+const research_engineers: &[&str] = &[
     "David Ha",
     "Andy Jones",
     "Sholto Douglas",
@@ -85,7 +85,7 @@ pub fn inspirations_page() -> Html {
 
                         <h2>{"AI Researchers Without PHDs"}</h2>
                         <ul class="publications-list" style="margin-top: 8px;">
-                            { for AI_RESEARCHERS_WITHOUT_PHDS.iter().map(|name| {
+                            { for research_engineers.iter().map(|name| {
                                 html! {
                                     <li style="padding: 4px 0; border-bottom: none;">
                                         <span class="pub-title" style="font-size: 1rem;">{*name}</span>
