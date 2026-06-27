@@ -32,7 +32,7 @@ pub fn about_card() -> Html {
                         {"My motivation for writing this blog/journal is to keep track of my learnings and refer back to it when I've achieved my goal of becoming the best scientific research engineer within my limits."}
                     </p>
                     <p>
-                        {"I'm currently a Research Technical Lead at Xanadu, leading the automation team is creating Agentic workflows for accelerating scientific tasks."}
+                        {"I'm currently a Research Technical Lead at Xanadu, leading the automation team in creating Agentic workflows for accelerating scientific tasks."}
                     </p>
                     <p>
                         {"I live in Toronto, an underrated city that doesn't receive as much appreciation as it should from its residents."}
