@@ -5,17 +5,13 @@ use yew::prelude::*;
 use yew_router::prelude::*;
 
 use components::Snowfall;
-use pages::{BlogPage, BlogPostPage, HomePage, InspirationsPage, ResearchPage, ResearchPostPage};
+use pages::{BlogPage, BlogPostPage, HomePage, InspirationsPage};
 
 /// Routes for the application
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
     #[at("/")]
     Home,
-    #[at("/research")]
-    Research,
-    #[at("/research/:slug")]
-    ResearchPost { slug: String },
     #[at("/blog")]
     Blog,
     #[at("/blog/:slug")]
@@ -29,8 +25,6 @@ pub enum Route {
 fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! { <HomePage /> },
-        Route::Research => html! { <ResearchPage /> },
-        Route::ResearchPost { slug } => html! { <ResearchPostPage slug={slug} /> },
         Route::Blog => html! { <BlogPage /> },
         Route::BlogPost { slug } => html! { <BlogPostPage slug={slug} /> },
         Route::Inspirations => html! { <InspirationsPage /> },

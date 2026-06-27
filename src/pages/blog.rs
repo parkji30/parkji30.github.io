@@ -10,9 +10,21 @@ struct BlogPostData {
     date: &'static str,
     description: &'static str,
     photos: &'static [&'static str],
+    links: &'static [&'static str],
 }
 
 const BLOG_POSTS: &[BlogPostData] = &[
+    BlogPostData {
+        slug: "papers",
+        title: "Papers",
+        date: "Jun 24, 2026",
+        description: "Papers I want to read / refer to later.",
+        photos: &[],
+        links: &[
+            "https://arxiv.org/abs/2603.05451",
+            "https://arxiv.org/abs/2401.06118",
+        ],
+    },
     BlogPostData {
         slug: "sauble-beach",
         title: "Sauble Beach",
@@ -29,6 +41,7 @@ const BLOG_POSTS: &[BlogPostData] = &[
             "/assets/photos/sauble_beach/sunset2.jpg",
             "/assets/photos/sauble_beach/water.jpg",
         ],
+        links: &[],
     },
     BlogPostData{
         slug: "blue-mountain",
@@ -43,6 +56,7 @@ const BLOG_POSTS: &[BlogPostData] = &[
             "/assets/photos/blue_mountain/evening_mountain_top.jpeg",
             "/assets/photos/blue_mountain/village_night.jpeg",
         ],
+        links: &[],
     },
     BlogPostData {
         slug: "korea",
@@ -70,6 +84,7 @@ const BLOG_POSTS: &[BlogPostData] = &[
             "/assets/photos/korea/korea_18.jpg",
             "/assets/photos/korea/korea_19.jpg",
         ],
+        links: &[],
     },
 ];
 
@@ -87,7 +102,7 @@ pub fn blog_page() -> Html {
 
                 <article class="research-article">
                     <header class="research-header">
-                        <h1 class="research-title">{"Blog"}</h1>
+                        <h1 class="research-title">{"Toronto"}</h1>
                         <div class="research-divider"></div>
                     </header>
 
@@ -127,7 +142,7 @@ pub fn blog_post_page(props: &BlogPostProps) -> Html {
                 <div class="research-content">
                     <nav class="research-nav">
                         <Link<Route> to={Route::Blog} classes="back-link">
-                            {"← Back to Blog"}
+                            {"← Back to Toronto"}
                         </Link<Route>>
                     </nav>
                     <article class="research-article">
@@ -193,7 +208,7 @@ pub fn blog_post_page(props: &BlogPostProps) -> Html {
             <div class="research-content">
                 <nav class="research-nav">
                     <Link<Route> to={Route::Blog} classes="back-link">
-                        {"← Back to Blog"}
+                        {"← Back to Toronto"}
                     </Link<Route>>
                 </nav>
 
@@ -205,6 +220,17 @@ pub fn blog_post_page(props: &BlogPostProps) -> Html {
 
                     <section class="blog-post">
                         <p>{post.description}</p>
+                        if !post.links.is_empty() {
+                            <ul class="blog-links">
+                                { for post.links.iter().map(|link| {
+                                    html! {
+                                        <li>
+                                            <a href={*link} target="_blank" rel="noopener noreferrer">{*link}</a>
+                                        </li>
+                                    }
+                                })}
+                            </ul>
+                        }
                         <div class="blog-photo-grid">
                             { for photos.iter().enumerate().map(|(i, src)| {
                                 html! {

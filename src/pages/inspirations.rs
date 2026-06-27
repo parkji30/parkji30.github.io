@@ -64,7 +64,7 @@ pub fn inspirations_page() -> Html {
 
                 <article class="research-article">
                     <header class="research-header">
-                        <h1 class="research-title">{"Inspirations"}</h1>
+                        <h1 class="research-title">{"Learnings"}</h1>
                         <div class="research-divider"></div>
                     </header>
 
