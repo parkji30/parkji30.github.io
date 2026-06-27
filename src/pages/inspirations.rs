@@ -38,6 +38,11 @@ const INSPIRATIONS: &[AIStories] = &[
     }
 ];
 
+const PAPERS: &[&str] = &[
+    "https://arxiv.org/abs/2603.05451",
+    "https://arxiv.org/abs/2401.06118",
+];
+
 const research_engineers: &[&str] = &[
     "David Ha",
     "Andy Jones",
@@ -69,6 +74,13 @@ pub fn inspirations_page() -> Html {
                     </header>
 
                     <section class="research-section">
+                        <h2>{"Notes"}</h2>
+                        <p>
+                            {"I'm starting this section to keep track of all my learnings to become the best scientific research engineer I can be."}
+                        </p>
+
+                        <div class="research-divider" style="width: 100%; margin: 24px 0;"></div>
+
                         <h2>{"Stories"}</h2>
                         <ul class="publications-list">
                             { for INSPIRATIONS.iter().map(|item| {
@@ -76,6 +88,20 @@ pub fn inspirations_page() -> Html {
                                     <li>
                                         <a href={item.url} target="_blank" rel="noopener noreferrer" class="pub-title">{item.title}</a>
                                         <span class="pub-meta">{format!(" — {}", item.note)}</span>
+                                    </li>
+                                }
+                            })}
+                        </ul>
+
+                        <div class="research-divider" style="width: 100%; margin: 24px 0;"></div>
+
+                        <h2>{"Papers"}</h2>
+                        <p>{"Papers I want to read / refer to later."}</p>
+                        <ul class="publications-list" style="margin-top: 8px;">
+                            { for PAPERS.iter().map(|url| {
+                                html! {
+                                    <li>
+                                        <a href={*url} target="_blank" rel="noopener noreferrer" class="pub-title">{*url}</a>
                                     </li>
                                 }
                             })}

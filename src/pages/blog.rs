@@ -15,17 +15,6 @@ struct BlogPostData {
 
 const BLOG_POSTS: &[BlogPostData] = &[
     BlogPostData {
-        slug: "papers",
-        title: "Papers",
-        date: "Jun 24, 2026",
-        description: "Papers I want to read / refer to later.",
-        photos: &[],
-        links: &[
-            "https://arxiv.org/abs/2603.05451",
-            "https://arxiv.org/abs/2401.06118",
-        ],
-    },
-    BlogPostData {
         slug: "sauble-beach",
         title: "Sauble Beach",
         date: "Jan 10, 2025",
