@@ -21,8 +21,8 @@ pub fn about_card() -> Html {
                     <Link<Route> to={Route::Blog} classes="home-link-item">
                         {"Toronto"}
                     </Link<Route>>
-                    <Link<Route> to={Route::Inspirations} classes="home-link-item">
-                        {"Learnings"}
+                    <Link<Route> to={Route::Writings} classes="home-link-item">
+                        {"Writings"}
                     </Link<Route>>
                 </nav>
 

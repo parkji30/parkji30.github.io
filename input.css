@@ -77,7 +77,7 @@ body { font-family: var(--font-cormorant); background: #000; min-height: 100vh; 
 
 /* Research & Blog */
 .research-content {
-    position: relative; z-index: 60; width: 33.333%; min-width: 400px; max-width: 600px;
+    position: relative; z-index: 60; width: 40%; min-width: 400px; max-width: 700px;
     margin: 0 auto; min-height: 100vh; background: rgba(0,0,0,.92);
     border-left: 1px solid var(--color-gray-medium); border-right: 1px solid var(--color-gray-medium);
     padding: 40px 50px 80px; box-shadow: 0 0 80px 40px rgba(0,0,0,.9); backdrop-filter: blur(2px);

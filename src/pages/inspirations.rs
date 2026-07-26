@@ -3,6 +3,35 @@ use yew_router::prelude::*;
 
 use crate::Route;
 
+/// Writings listing page component
+#[function_component(WritingsPage)]
+pub fn writings_page() -> Html {
+    html! {
+        <div class="app research-page">
+            <div class="research-content">
+                <nav class="research-nav">
+                    <Link<Route> to={Route::Home} classes="back-link">
+                        {"← Back"}
+                    </Link<Route>>
+                </nav>
+
+                <article class="research-article">
+                    <header class="research-header">
+                        <h1 class="research-title">{"Writings"}</h1>
+                        <div class="research-divider"></div>
+                    </header>
+
+                    <div class="posts-list">
+                        <Link<Route> to={Route::Learnings} classes="post-link">
+                            <span class="post-link-title">{"Learnings"}</span>
+                        </Link<Route>>
+                    </div>
+                </article>
+            </div>
+        </div>
+    }
+}
+
 /// Inspiration link data
 struct AIStories {
     title: &'static str,
@@ -43,7 +72,7 @@ const PAPERS: &[&str] = &[
     "https://arxiv.org/abs/2401.06118",
 ];
 
-const research_engineers: &[&str] = &[
+const RESEARCH_ENGINEERS: &[&str] = &[
     "David Ha",
     "Andy Jones",
     "Sholto Douglas",
@@ -52,18 +81,18 @@ const research_engineers: &[&str] = &[
     "Aleksa Gordic",
     "Peter Steinberger",
     "Llion Jones",
-    "Will DePue (College Dropout)"
+    "Will DePue (College Dropout)",
 ];
 
-/// Inspirations page component
-#[function_component(InspirationsPage)]
-pub fn inspirations_page() -> Html {
+/// Learnings writing component
+#[function_component(LearningsPage)]
+pub fn learnings_page() -> Html {
     html! {
         <div class="app research-page">
             <div class="research-content">
                 <nav class="research-nav">
-                    <Link<Route> to={Route::Home} classes="back-link">
-                        {"← Back"}
+                    <Link<Route> to={Route::Writings} classes="back-link">
+                        {"← Back to Writings"}
                     </Link<Route>>
                 </nav>
 
@@ -111,7 +140,7 @@ pub fn inspirations_page() -> Html {
 
                         <h2>{"AI Researchers Without PHDs"}</h2>
                         <ul class="publications-list" style="margin-top: 8px;">
-                            { for research_engineers.iter().map(|name| {
+                            { for RESEARCH_ENGINEERS.iter().map(|name| {
                                 html! {
                                     <li style="padding: 4px 0; border-bottom: none;">
                                         <span class="pub-title" style="font-size: 1rem;">{*name}</span>
