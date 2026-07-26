@@ -25,28 +25,38 @@ body { font-family: var(--font-cormorant); background: #000; min-height: 100vh; 
 /* Snowfall - GPU accelerated */
 .snowfall-container { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; contain: strict; }
 .snowflake {
-    position: absolute; top: 0; background: rgba(255, 255, 255, 0.4); border-radius: 0;
-    image-rendering: pixelated;
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.95) 0 18%, rgba(255,255,255,.55) 48%, rgba(255,255,255,0) 75%);
     will-change: transform, rotate;
     backface-visibility: hidden;
-    animation: snowfall var(--fall-duration, 10s) linear infinite, snowspin var(--spin-duration, 3s) ease-in-out infinite;
+    animation:
+        snowfall var(--fall-duration, 24s) linear infinite,
+        snowspin var(--spin-duration, 11s) ease-in-out infinite;
     animation-fill-mode: backwards;
 }
+.snowflake--far { box-shadow: 0 0 3px rgba(255,255,255,.12); }
+.snowflake--mid { box-shadow: 0 0 4px rgba(255,255,255,.18); }
+.snowflake--near { box-shadow: 0 0 6px rgba(255,255,255,.22); }
 @keyframes snowspin {
-    0%, 100% { rotate: 0deg }
-    25% { rotate: 8deg }
-    75% { rotate: -8deg }
+    0%, 100% { rotate: -4deg }
+    50% { rotate: 5deg }
 }
 @keyframes snowfall {
-    0% { transform: translate3d(0, -20px, 0) }
-    12.5% { transform: translate3d(5px, 12vh, 0) }
-    25% { transform: translate3d(0, 25vh, 0) }
-    37.5% { transform: translate3d(-5px, 37vh, 0) }
-    50% { transform: translate3d(0, 50vh, 0) }
-    62.5% { transform: translate3d(5px, 62vh, 0) }
-    75% { transform: translate3d(0, 75vh, 0) }
-    87.5% { transform: translate3d(-5px, 87vh, 0) }
-    100% { transform: translate3d(0, 100vh, 0) }
+    0% { transform: translate3d(0, -5vh, 0) }
+    18% { transform: translate3d(var(--counter-drift), 16vh, 0) }
+    42% { transform: translate3d(var(--drift), 40vh, 0) }
+    68% { transform: translate3d(var(--counter-drift), 67vh, 0) }
+    86% { transform: translate3d(var(--drift), 87vh, 0) }
+    100% { transform: translate3d(0, 105vh, 0) }
+}
+@media (prefers-reduced-motion: reduce) {
+    .snowflake {
+        animation: none;
+        opacity: .18 !important;
+        transform: translate3d(0, var(--resting-y), 0);
+    }
 }
 
 /* Home */
